@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
+    <link rel="stylesheet" href="css/semantic.css" type="text/css">
+    <link rel="stylesheet" href="css/slideshow.css" type="text/css">
+    <link rel="stylesheet" href="css/fadeanimation.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+</head>
+
+<style>
+    * {
+        font-family: 'Open Sans';
+    }
+
+    .right-floated {
+        float: right;
+    }
+    
+    .clear {
+        clear: both;
+    }
+
+</style>
+
+<body>
+    <div class="ui segment basic">
+        <div class="ui menu inverted">
+            <a href="home.html" class="item"><i class="home icon"></i> About me</a>
+            <a href="mywork.html" class="active item"><i class="briefcase icon"></i> My Work</a>
+            <a href="timeline.html" class="item"><i class="calendar alternate outline icon"></i> Timeline</a>
+        </div>
+    </div>
+
+    <div class="modal" onclick="CloseModal();">
+        <div class="content">
+            <img src="images/InfiRun/img1.png" alt="" class="ui image fluid">
+            <a class="close-icon" onclick="CloseModal();"><i class="icon close"></i> Close</a>
+        </div>
+    </div>
+
+    <div class="ui segment">
+        <div class="ui segment green">
+            In my spare time I make games in the Unity Game Engine! Here you can have a look at my projects (not just Unity ones!).<br>
+            Would you like to know more about a specific project? Perhaps you want to learn how something is done? Feel free to <a href="contact.html">contact me!</a>
+        </div>
+
+        <div class="ui segment basic">
+            <div class="ui grid stackable">
+               <div class="six wide column fade-right">
+                   <div id="studentnetwork"></div>
+               </div>
+               <div class="ten wide column fade-left">
+                    <h1>
+                        <a href="https://github.com/IsaacCheng9/student-network/">
+                            <i class="devicon-html5-plain-wordmark colored"></i>
+                            <i class="devicon-css3-plain-wordmark colored"></i>
+                            <i class="devicon-javascript-plain colored"></i>
+                            <i class="devicon-jquery-plain-wordmark colored"></i>
+                            <div class="clear"></div>
+                            ReConnect
+                        </a>
+                        <div class="ui label green right-floated">Status <div class="detail">Finished</div>
+                        </div>
+                    </h1>
+                    <p>A student network which promotes interaction within the University of Exeter's student community. This aims to provide social opportunities by encouraging students to engage with each other in a fun and friendly online environment.</p>
+                    Skills learned / Features:
+                    <div class="ui list">
+                        <div class="item"><i class="plus icon"></i> Group project (6 people), we divided responsibilities based on our skillsets to make sure we finish the product on time.</div>
+                        <div class="item"><i class="plus icon"></i> Ability to post different types of content (text, video, image, quiz).</div>
+                        <div class="item"><i class="plus icon"></i> Find people with similar interests and hobbies.</div>
+                        <div class="item"><i class="plus icon"></i> Dynamic searching using AJAX.</div>
+                        <div class="item"><i class="plus icon"></i> I was responsible for the website design and some of the back end in posting content and searching users.</div>
+                    </div>
+
+                    <a href="https://github.com/IsaacCheng9/student-network/" target="_blank">
+                        <!--                       <img src="images/itch-io.png" alt="" class="ui image avatar">-->
+                        <i class="icon github"></i>
+                        Available on GitHub
+                    </a>
+                </div>
+               
+                <div class="six wide column fade-right">
+                    <div id="computerhorror"></div>
+                </div>
+                <div class="ten wide column fade-left">
+                    <h1>
+                        <a href="#">
+                            <img src="images/languages/unity.png" alt="" class="ui image tiny">
+                            Come find me
+                        </a>
+                        <div class="ui label orange right-floated">Status <div class="detail">In Development</div>
+                        </div>
+                    </h1>
+                    <p>Dark web horror game inspired by internet mysteries such as Cicada 3301.</p>
+                    Skills learned / Features:
+                    <div class="ui list">
+                        <div class="item"><i class="plus icon"></i> Fake operating system featuring various files types like text, image, music and executable.</div>
+                        <div class="item"><i class="plus icon"></i> Working fake internet including fake websites. Some websites have an extra database for the backend.</div>
+                        <div class="item"><i class="plus icon"></i> Making sure the code is scalable, maintainable and modular.</div>
+                    </div>
+
+                    <a href="" target="_blank">
+                        <!--                       <img src="images/itch-io.png" alt="" class="ui image avatar">-->
+                        Not available yet.
+                    </a>
+                </div>
+                
+                <div class="six wide column fade-right">
+                   <div id="raymarch"></div>
+               </div>
+               <div class="ten wide column fade-left">
+                    <h1>
+                        <a href="https://www.shadertoy.com/view/wllXz7">
+                            GLSL
+                            <div class="clear"></div>
+                            Ray Marching MandelBulb
+                        </a>
+                        <div class="ui label green right-floated">Status <div class="detail">Finished</div>
+                        </div>
+                    </h1>
+                    <p>Ray marching engine that supports many features.</p>
+                    Skills learned / Features:
+                    <div class="ui list">
+                        <div class="item"><i class="plus icon"></i> Infinitely complex shapes at 60 FPS.</div>
+                        <div class="item"><i class="plus icon"></i> Rendering 3D fractals using Polar Coordinates.</div>
+                        <div class="item"><i class="plus icon"></i> Real time shadows.</div>
+                        <div class="item"><i class="plus icon"></i> Ambient Occlusion shading.</div>
+                        <div class="item"><i class="plus icon"></i> Directional and point lighting.</div>
+                        <div class="item"><i class="plus icon"></i> Glowing outlines.</div>
+                        <div class="item"><i class="plus icon"></i> Shape cutting and merging without FPS loss.</div>
+                    </div>
+
+                    <a href="https://www.shadertoy.com/view/wllXz7" target="_blank">
+                        <!--                       <img src="images/itch-io.png" alt="" class="ui image avatar">-->
+                        <i class="icon code"></i>
+                        Available on ShaderToy
+                    </a>
+                </div>
+
+                <div class="six wide column fade-right">
+                    <div id="rocketjumper"></div>
+                </div>
+                <div class="ten wide column fade-left">
+                    <h1>
+                        <a href="https://killereks.itch.io/rocket-jumper">
+                            <img src="images/languages/unity.png" alt="" class="ui image tiny">
+                            Rocket Jumper
+                        </a>
+                        <div class="ui label orange right-floated">Status <div class="detail">In Development</div>
+                        </div>
+                    </h1>
+                    <p>Rocket jumping speedrun game focused on multiplayer scores.</p>
+                    Skills learned / Features:
+                    <div class="ui list">
+                        <div class="item"><i class="plus icon"></i> Creating REST APIs to serve various data.</div>
+                        <div class="item"><i class="plus icon"></i> Login/Register system.</div>
+                        <div class="item"><i class="plus icon"></i> Saving replays of the runs locally.</div>
+                        <div class="item"><i class="plus icon"></i> Data compression to reduce replay file size.</div>
+                    </div>
+
+                    <a href="https://killereks.itch.io/rocket-jumper" target="_blank">
+                        <img src="images/itch-io.png" alt="" class="ui image avatar">
+                        Play on itch.io
+                    </a>
+                </div>
+
+                <div class="six wide column fade-right">
+                    <div id="perplexexperiment"></div>
+                </div>
+                <div class="ten wide column fade-left">
+                    <h1>
+                        <a href="https://killereks.itch.io/the-perplex-experiment">
+                            <img src="images/languages/unity.png" alt="" class="ui image tiny">
+                            Perplex Experiment
+                        </a>
+                        <div class="ui label orange right-floated">Status <div class="detail">In Development</div>
+                        </div>
+                    </h1>
+                    <p>Narration based puzzle parkour game.</p>
+                    Skills learned / Features:
+                    <div class="ui list">
+                        <div class="item"><i class="plus icon"></i> Mathematics behind procedural animations and projectile type questions.</div>
+                        <div class="item"><i class="plus icon"></i> Physics based movement.</div>
+                        <div class="item"><i class="plus icon"></i> Designing difficult puzzles.</div>
+                    </div>
+
+                    <a href="https://killereks.itch.io/the-perplex-experiment" target="_blank">
+                        <img src="images/itch-io.png" alt="" class="ui image avatar">
+                        Play on itch.io
+                    </a>
+                </div>
+
+                <div class="six wide column fade-right">
+                    <div id="infirun"></div>
+                </div>
+                <div class="ten wide column fade-left">
+                    <h1>
+                        <a href="https://killereks.itch.io/infirun">
+                            <img src="images/languages/unity.png" alt="" class="ui image tiny">
+                            InfiRun
+                        </a>
+                        <div class="ui label green right-floated">Status <div class="detail">Finished</div>
+                        </div>
+                    </h1>
+                    <p>Infinite runner highscore based game featuring global leaderboards.</p>
+                    Skills learned / Features:
+                    <div class="ui list">
+                        <div class="item"><i class="plus icon"></i> Working with server leaderboards.</div>
+                        <div class="item"><i class="plus icon"></i> Procedural level generation.</div>
+                        <div class="item"><i class="plus icon"></i> Dividing the work up with my team to ship the product on time.</div>
+                    </div>
+
+                    <a href="https://killereks.itch.io/infirun" target="_blank">
+                        <img src="images/itch-io.png" alt="" class="ui image avatar">
+                        Play on itch.io
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="scripts/jquery.js"></script>
+<script src="scripts/slideshow.js"></script>
+<script src="scripts/fadeanimation.js"></script>
+
+
+<script>
+    new Slideshow("infirun", ["images/InfiRun/img1.png",
+                              "images/InfiRun/img2.png",
+                              "images/InfiRun/img3.png",
+                              "images/InfiRun/gif1.gif", 
+                              "images/InfiRun/gif2.gif",
+                              "images/InfiRun/gif3.gif"],
+                  ["Start of the game", "Player Dashing", "Leaderboard", "Two rockets colliding", "More rocket action", "Player just about avoiding death."]);
+
+    new Slideshow("perplexexperiment", ["images/PerplexExperiment/img1.png",
+                                        "images/PerplexExperiment/img2.png",
+                                        "images/PerplexExperiment/img3.png"], 
+                  ["First laser room", "First wallrunning room", "Puzzle"])
+
+    new Slideshow("rocketjumper", ["images/RocketJumper/img1.png",
+                                   "images/RocketJumper/img2.png",
+                                   "images/RocketJumper/img3.png",
+                                   "images/RocketJumper/gif1.gif"],
+                  ["Main Menu", "End of the run", "Locally saved replays", "Example run"])
+
+    new Slideshow("computerhorror", ["images/ComeFindMe/img1.png",
+                                     "images/ComeFindMe/img2.jpg",
+                                     "images/ComeFindMe/img3.jpg",
+                                     "images/ComeFindMe/img4.jpg",
+                                     "images/ComeFindMe/img5.jpg",
+                                     "images/ComeFindMe/gif1.gif"],
+                  ["Interacting with the computer", "Right clicking on a file", "Web browser with working internet", "Listening to music", "Logging in to various websites (sessions)", "Email system with working back end"])
+    
+    new Slideshow("studentnetwork", ["images/studentnetwork/img1.png",
+                                     "images/studentnetwork/img2.png",
+                                     "images/studentnetwork/img3.png",
+                                     "images/studentnetwork/img4.png",
+                                     "images/studentnetwork/img5.png",
+                                     "images/studentnetwork/img6.png",
+                                     "images/studentnetwork/img7.png",
+                                     "images/studentnetwork/img8.png"], 
+                  ["Profile page of a user", "User filtering system", "Connecting with users", "Feed and posting", "Achievements", "Leaderboard", "Quiz System", "Quiz feedback, see your wrong answers and learn from them"])
+    
+    new Slideshow("raymarch", ["images/raymarch/img1.jpg"], ["3D Mandelbulb"])
+
+</script>

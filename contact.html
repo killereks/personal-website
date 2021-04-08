@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
+    <link rel="stylesheet" href="css/semantic.css" type="text/css">
+    <link rel="stylesheet" href="css/slideshow.css" type="text/css">
+    <link rel="stylesheet" href="css/fadeanimation.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+</head>
+
+<style>
+    * {
+        font-family: 'Open Sans';
+    }
+
+    .right-floated {
+        float: right;
+    }
+
+    .clear {
+        clear: both;
+    }
+    
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -10;
+    }
+
+</style>
+
+<body>
+    <div class="ui segment basic">
+        <div class="ui menu inverted">
+            <a href="home.html" class="item"><i class="home icon"></i> About me</a>
+            <a href="mywork.html" class="item"><i class="briefcase icon"></i> My Work</a>
+            <a href="" class="item"><i class="calendar alternate outline icon"></i> Timeline</a>
+        </div>
+    </div>
+
+    <div class="ui segment basic">
+        <div class="ui grid" style="background-color: rgba(51, 51, 51, 0.75);">
+            <div class="four wide column"></div>
+            <div class="eight wide column">
+                <p id="my-form-status"></p>
+                <div class="ui form">
+                    <form action="https://formspree.io/f/xnqlqgwk" method=POST id="contact-form">
+                        <div class="required field">
+                            <label for="" style="color: #eee;">Your Email</label>
+                            <input type="email" name="_replyto" required>
+                        </div>
+                        <div class="required field">
+                            <label for="" style="color: #eee;">Your message</label>
+                            <textarea name="message" id="" rows="10" required placeholder="Hi Oskar..."></textarea>
+                        </div>
+                        <input type="submit" value="Send" class="ui button green">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <canvas id="canvas"></canvas>
+
+</body>
+
+</html>
+
+<script src="scripts/jquery.js"></script>
+
+
+<script>
+    var form = document.getElementById("contact-form");
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            status.innerHTML = `<div class="ui message green"><div class="header">Thank you for contacting me!</div>Your email has been sent.</div>`;
+            form.reset();
+        }).catch(error => {
+            status.innerHTML = `<div class="ui message red">Oops! There was a problem submitting your form.${error}<div>`;
+        })
+    }
+
+    form.addEventListener("submit", handleSubmit);
+
+</script>
+
+
+<script src="scripts/particles.js"></script>

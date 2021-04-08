@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
+    <link rel="stylesheet" href="css/semantic.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+</head>
+
+<style>
+    * {
+        font-family: 'Open Sans';
+    }
+
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -10;
+    }
+    
+    .icons-list {
+        background-color: rgba(51, 51, 51, 0.75);
+    }
+
+    .icons-list i {
+        font-size: 4em;
+    }
+    
+    .icons-list .item {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .socials a {
+        color: rgba(255, 255, 255, 0.75) !important;
+        font-weight: 700;
+        font-size: 2em;
+    }
+
+    .socials {
+        text-align: center;
+        width: 100%;
+
+        background-color: rgba(51, 51, 51, 0.75);
+    }
+
+    .header {
+        background: conic-gradient(#d95641, #b14439, #b2453a, #d25645,
+                #d95641, #b14439, #b2453a, #d25645,
+                #d95641, #b14439, #b2453a, #d25645,
+                #d95641, #b14439, #b2453a, #d25645);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        background-clip: text;
+        text-fill-color: transparent;
+        animation: header-anim 1s infinite;
+
+        text-shadow: 0 0 5px #b2453a;
+        color: #b2453a !important;
+    }
+
+</style>
+
+<body>
+    <div class="ui segment basic">
+        <div class="ui inverted menu">
+            <a href="home.html" class="active item"><i class="home icon"></i> About me</a>
+            <a href="mywork.html" class="item"><i class="briefcase icon"></i> My Work</a>
+            <a href="timeline.html" class="item"><i class="calendar alternate outline icon"></i> Timeline</a>
+        </div>
+
+        <div class="ui grid">
+            <div class="four wide column"></div>
+            <div class="eight wide column" style="background-color: rgba(51, 51, 51, 0.75);">
+                <h1 class="header" style="color: #FC3565; font-size: 4em;">
+                    Oskar Oramus
+                </h1>
+                <h2 style="color: white;">Software Engineer, Game Developer, Web Designer, Mathematician.</h2>
+
+                <p style="color: lightgray;">Hi! I'm a bilingual <code>Computer Science and Mathematics</code> student that loves making games and programming. I've been programming for 7 years (as of 2021) in various languages and have been using Unity Engine for the last 4 years.
+                </p>
+                
+                <p style="color: lightgray;">Interests:</p>
+                <ul class="ui list" style="color: lightgray !important;">
+                    <div class="item"><i class="gamepad icon"></i> Game Development / Game Design</div>
+                    <div class="item"><i class="cube icon"></i> 3D Rendering (Rasterization, Ray tracing, Ray marching)</div>
+                    <div class="item"><i class="cubes icon"></i> Real Time Physics (Verlet Integration)</div>
+                    <div class="item"><i class="icon edit"></i> 3D Modelling + Texturing</div>
+                    <div class="item"><i class="icon table"></i> UI/UX Design</div>
+                    <div class="item"><i class="icon chess rook"></i> Artificial Intelligence (BT, GOAP, Utility and Machine Learning)</div> 
+                </ul>
+
+                <h4 style="color: white;">Programming languages:</h4>
+                <div class="ui list horizontal icons-list">
+                    <div class="item"><i class="devicon-java-plain-wordmark colored"></i></div>
+                    <div class="item"><i class="devicon-python-plain-wordmark colored"></i></div>
+                    <div class="item"></div>
+                    <div class="item"><i class="devicon-c-line-wordmark colored"></i></div>
+                    <div class="item"><i class="devicon-csharp-line colored"></i></div>
+                    <div class="item"><i class="devicon-cplusplus-line colored"></i></div>
+                    <div class="item"></div>
+                    <div class="item"><i class="devicon-html5-plain-wordmark colored"></i></div>
+                    <div class="item"><i class="devicon-css3-plain-wordmark colored"></i></div>
+                    <div class="item"><i class="devicon-javascript-plain colored"></i></div>
+                    <div class="item"><i class="devicon-jquery-plain-wordmark colored"></i></div>
+                    <div class="item"></div>
+                    <div class="item"><i class="devicon-haskell-plain-wordmark colored"></i></div>
+                    <div class="item" style="color: white;">Prolog</div>
+                    <div class="item"></div>
+                    <div class="item" style="color: white;">GLSL</div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="ui segment basic">
+            <p id="my-form-status"></p>
+            <div class="ui form">
+                <form action="https://formspree.io/f/xnqlqgwk" method=POST id="contact-form">
+                    <div class="required field">
+                        <label for="">Your Email</label>
+                        <input type="email" name="_replyto" required>
+                    </div>
+                    <div class="required field">
+                        <label for="">Your message</label>
+                        <textarea name="message" id="" rows="10" required></textarea>
+                    </div>
+
+                    <input type="submit" value="Send" class="ui button green">
+                </form>
+            </div>
+        </div>
+-->
+        
+        <br>
+        <br>
+        <br>
+
+        <div class="ui horizontal list socials">
+            <a href="https://www.linkedin.com/in/oskar-oramus/" class="item" target="_blank"><i class="icon linkedin" style="color: white;"></i> LinkedIn</a>
+            <a href="https://github.com/killereks" class="item" target="_blank"><i class="icon github" style="color: white;"></i> GitHub</a>
+            <a href="https://codepen.io/killerek" class="item" target="_blank"><i class="icon code" style="color: white;"></i> CodePen</a>
+            <a href="https://www.youtube.com/c/killereks" class="item" target="_blank"><i class="icon youtube" style="color: white;"></i> YouTube</a>
+            <a href="contact.html" class="item"><i class="icon phone" style="color: white;"></i> Contact</a>
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+</body>
+
+</html>
+
+<script src="scripts/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts/particles.js"></script>
