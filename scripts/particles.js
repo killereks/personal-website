@@ -4,6 +4,8 @@
 
     var windowWidth, windowHeight;
 
+    var mouseX, mouseY;
+
     window.onresize = function() {
         UpdateSize();
     }
@@ -52,7 +54,7 @@
         ctx.fillStyle = "#333";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
 
         for (var point of points) {
             point.Update();
@@ -67,13 +69,24 @@
 
                 if (dist > 200) continue;
 
-                ctx.strokeStyle = `rgba(255, 255, 255, ${dist/200})`
+                ctx.strokeStyle = `rgba(255, 255, 255, ${Lerp(0, 0.2, dist/200)})`
                 ctx.lineWidth = Lerp(2, 0.1, dist / 200);
 
                 ctx.beginPath();
                 ctx.moveTo(point.x, point.y);
                 ctx.lineTo(otherPoint.x, otherPoint.y);
                 ctx.stroke();
+                
+                var dist = Math.hypot(mouseX - point.x, mouseY - point.y);
+                if (dist < 150){
+                    ctx.beginPath();
+                    ctx.moveTo(mouseX, mouseY);
+                    ctx.lineTo(point.x, point.y);
+                    ctx.stroke();
+                    
+                    point.vx += (point.x - mouseX) * 0.01 / dist;
+                    point.vy += (point.y - mouseY) * 0.01 / dist;
+                }
             }
             
             ctx.save();
@@ -104,3 +117,9 @@
     function Lerp(a, b, t) {
         return a + (b - a) * t;
     }
+
+function mouseMove(event){
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+}
+document.addEventListener("mousemove", mouseMove);
