@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
     <link rel="stylesheet" href="css/semantic.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-coy.min.css">
 </head>
 
 <style>
@@ -26,6 +27,36 @@
         </div>
 
         <h2 style="text-align: center;">Timeline: Here u can see what I've been working on recently and my failed experiments :)</h2>
+        
+        <div class="ui segment">
+            <div class="ui grid stackable">
+                <div class="sixteen wide column">
+                    <div class="ui label huge">
+                        Project name:
+                        <div class="detail">Come find me</div>
+                    </div>
+                    <div style="float: right">Posted on 23/04/2021</div>
+                </div>
+                <div class="sixteen wide column">
+                    <h2><a>File explorer update!</a></h2>
+                </div>
+                <div class="sixteen wide column">
+                    <p>
+                        Today I have decided to mess around with a file explorer and since I have created a nice file structure with some methods such as <code class="language-clike">FileSystem.GetFilesInDirectory(string path);</code> and <code class="language-clike">FileSystem.GetFoldersInDirectory(string path);</code> it was very easy to add working folders.
+                    </p>
+                    <p>
+                        Funnily I struggled more with adding history than displaying the folder structure and making sure u can click on them.
+                    </p>
+                    <p>
+                        I still need to figure out how to make it look nice, if you are interested in helping me with this project feel free to contact me on the <a href="contact.html">contact page.</a>
+                    </p>
+                    <div class="ui segment basic">
+                        <img class="ui image centered huge" src="images/timeline/file_explorer.gif" alt="">
+                        <p style="text-align: center;">A short video showing how file explorer works.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="ui segment">
             <div class="ui grid stackable">
@@ -34,10 +65,10 @@
                         Project name:
                         <div class="detail">Come find me</div>
                     </div>
-                    <div style="float: right">Posted on 21/04/2021</div>
+                    <div style="float: right">Posted on 22/04/2021</div>
                 </div>
                 <div class="sixteen wide column">
-                    <h2><a href="/post_page/${ post.postId }">Reworking the file structure!</a></h2>
+                    <h2><a>Reworking the file structure!</a></h2>
                 </div>
                 <div class="sixteen wide column">
                     <p>
@@ -65,3 +96,6 @@
     <canvas id="canvas"></canvas>
 
 </body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
