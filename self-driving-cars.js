@@ -199,7 +199,7 @@ var map = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
-var tileSize = new Vector(25, 25);
+var tileSize = new Vector(canvas.width/map[0].length, canvas.height/map.length);
 
 function GetMapSquaresAround(point) {
     var index = new Vector(point.x / tileSize.x, point.y / tileSize.y);
@@ -357,7 +357,32 @@ canvas.addEventListener('mousemove', event => {
     let y = event.clientY - bound.top - canvas.clientTop;
 
     mouse = new Vector(x, y);
+    EditMap();
 });
+
+function EditMap(){
+    var mapCoords = new Vector(mouse.x / tileSize.x, mouse.y / tileSize.y);
+    mapCoords = new Vector(mapCoords.x | 0, mapCoords.y | 0);
+    
+    if (mouseBtn[0]){
+        map[mapCoords.y][mapCoords.x] = 1;
+    }
+    if (mouseBtn[2]){
+        map[mapCoords.y][mapCoords.x] = 0;
+    }
+}
+
+function GetTileCoords(mouseCoords){
+    function floor(num, nearest){
+        return Math.floor(num / nearest) * nearest;
+    }
+    return new Vector(floor(mouseCoords.x, tileSize.x), floor(mouseCoords.y, tileSize.y));
+}
+
+canvas.addEventListener("onContextMenu", function(event){
+    event.preventDefault();
+    return false;
+})
 
 function LoadPreset(){
     var preset = `{"input_nodes":8,"hidden_nodes":2,"output_nodes":2,"weights_ih":{"rows":2,"cols":8,"data":[[1.240766425003189,0.8080857271806451,-0.838010767027478,-2.5871938236908893,0.391285830218444,-0.0812864750927671,-0.8365547816108172,-0.12118344268242631],[2.8669649614205905,0.026062255621607133,1.0191418554128076,-0.18341792280376645,-1.449428293447974,-0.7229865794897344,0.511470738521621,-1.0802969034254728]]},"weights_ho":{"rows":2,"cols":2,"data":[[0.22063571318212105,-1.5232546727948946],[-0.930288388580585,-0.9759067065031359]]},"bias_h":{"rows":2,"cols":1,"data":[[0.32742434519051267],[-0.07133112593984192]]},"bias_o":{"rows":2,"cols":1,"data":[[-0.38017949730541867],[1.1699333433364871]]},"learning_rate":0.1,"activation_function":{}}`;
@@ -370,10 +395,20 @@ function LoadPreset(){
         newCars.push(new Car(NeuralNetwork.deserialize(preset)));
     }
     
+    recordPoints = 0;
+    
     cars = newCars;
 }
 
+document.addEventListener("mousedown",function(event){
+  mouseBtn[event.button] = true;
+})
+document.addEventListener("mouseup",function(event){
+  mouseBtn[event.button] = false;
+})
+
 var mouse = new Vector(0, 0);
+var mouseBtn = [];
 
 function Loop() {
     ctx.fillStyle = "lightblue";
@@ -412,6 +447,12 @@ function Loop() {
             car.draw();
         }
     }
+    
+    var coords = GetTileCoords(mouse);
+    
+    ctx.fillStyle = "green";
+    ctx.fillRect(coords.x, coords.y, tileSize.x, tileSize.x);
+    
 
     setTimeout(Loop, 1000 / targetFPS);
 }
