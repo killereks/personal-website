@@ -1,0 +1,62 @@
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
+    <link rel="stylesheet" href="css/semantic.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+</head>
+
+<style>
+    canvas {
+        margin: 0 auto;
+        border: 2px solid black;
+    }
+
+    .canvas-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+
+<body>
+    <div class="ui menu">
+        <a class="item" href="mywork.html">
+            <i class="left arrow icon"></i>
+            Back to my projects
+        </a>
+    </div>
+    <div class="ui container">
+        <div class="canvas-container">
+            <canvas id="canvas" width=800 height=400></canvas>
+        </div>
+    </div>
+
+    <img src="images/car.png" id="car" style="display: none;">
+
+    <form onsubmit="return false;">
+        <fieldset>
+            <legend>Settings</legend>
+            <label for="simSpeed">Simulation Speed 1x-10x</label>
+            <input type="range" min=1 max=10 value=1 id="simSpeed"><br><br>
+            <button class="ui button red" onclick="NewPopulation();">New Population</button>
+        </fieldset>
+    </form>
+
+    <div class="ui green message big">
+        <div class="header">How to use?</div>
+        If the simulation is stuck, click <b>New Population</b> button to start a new generation. Increase the simulation speed if you don't like waiting. Cars take roughly 1-3 minutes to learn how to drive around the map.
+    </div>
+</body>
+
+<script src="Vector.js"></script>
+<script src="Matrix.js"></script>
+<script src="NeuralNetwork.js"></script>
+
+<script src="self-driving-cars.js"></script>
