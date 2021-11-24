@@ -11,11 +11,14 @@
     }
 
     function UpdateSize() {
-        canvas.width = $(document).width();
-        canvas.height = $(document).height();
+		var width = window.innerWidth;
+		var height = window.innerHeight;
+		
+        canvas.width = width;
+        canvas.height = height;
 
-        windowWidth = $(document).width();
-        windowHeight = $(document).height();
+        windowWidth = width;
+        windowHeight = height;
     }
 
     UpdateSize();
@@ -81,7 +84,7 @@
                 if (dist < 150){
                     ctx.beginPath();
                     ctx.moveTo(mouseX, mouseY);
-                    ctx.lineTo(point.x, point.y);
+                    ctx.lineTo(point.x + point.size/2, point.y + point.size/2);
                     ctx.stroke();
                     
                     point.vx += (point.x - mouseX) * 0.01 / dist;
@@ -119,7 +122,7 @@
     }
 
 function mouseMove(event){
-    mouseX = event.clientX;
-    mouseY = event.clientY;
+    mouseX = event.clientX;// - canvas.getBoundingClientRect().left;
+    mouseY = event.clientY;// - canvas.getBoundingClientRect().top;
 }
 document.addEventListener("mousemove", mouseMove);
