@@ -68,14 +68,25 @@ var info = [
 		link: `<a class="custom-link" href="https://killereks.itch.io/rocket-jumper">Available on itch.io</a>`
 	},
 	
+	// {
+	// 	name: "Project Aravoid",
+	// 	description: "An attempt at a realistic horror game, heavily relying on reactive AI.",
+	// 	features: [
+	// 		"AI that is spatially aware, i.e. will predict where the player ran off to.",
+	// 		"AI is able to remember where intersections are, so will go back to a different path after finding a dead end."
+	// 	],
+	// 	link: `Not available yet.`
+	// },
+
 	{
-		name: "Project Aravoid",
-		description: "An attempt at a realistic horror game, heavily relying on reactive AI.",
+		name: "Nycto",
+		description: "You are trapped in deep caves with no lights.  Thankfully you found a gun that allows you to see briefly whenever you shoot. Risk yourself deeper in search of an exit, battle ancient monsters and solve riddles that survived ages.",
 		features: [
-			"AI that is spatially aware, i.e. will predict where the player ran off to.",
-			"AI is able to remember where intersections are, so will go back to a different path after finding a dead end."
+			"Aggressive AI that will chase you down.",
+			"Use muzzle flash to see where you are.",
+			"Global speedrun leaderboard.",
 		],
-		link: `Not available yet.`
+		link: `<a class="custom-link" href="https://panpan58.itch.io/nycto">Available on itch.io</a>`
 	},
 	
 	{

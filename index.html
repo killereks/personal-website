@@ -17,7 +17,7 @@
 <style>
 	* {
 		font-family: 'Open Sans', 'Lato';
-		transition: all 0.4s ease-in-out !important;
+		/* transition: all 0.4s ease-in-out !important; */
 	}
 
 	canvas {
@@ -200,7 +200,7 @@
 	}
 	
 	.winner {
-		animation: glow 2s linear infinite;
+		/* animation: glow 2s linear infinite; */
 	}
 
 	@keyframes glow {
@@ -214,7 +214,55 @@
 			filter: drop-shadow(0px 0px 5px #F4D03F);
 		}
 	}
+
+	.gold {
+    background: conic-gradient(
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800,
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800,
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800,
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800
+    );
+  }
+
+  .gold-glow {
+    text-shadow: 0 0 5px #e3b600;
+    color: #e3b600 !important;
+  }
+
+  .achievement-icon {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 	
+  .ui.card .ui.label {
+	  font-size: 1em;
+  }
+
+  .ui.card {
+	  background-color: black !important;
+	  box-shadow: none !important;
+  }
+
+  .ui.card .image {
+	  background-color: black !important;
+	  box-shadow: none !important;
+  }
+
 </style>
 
 <body>
@@ -252,6 +300,7 @@
 				<p style="color: lightgray;">Hi! I'm a bilingual <b>Computer Science</b> student who loves making games and programming. I've been programming for <b id="programming-time"></b> in various languages and have been using Unity Engine for <b id="unity-time"></b>.
 				</p>
 				
+				<p style="color: lightgray; font-weight: 900;">Click on a game card to find out more.</p>
 				
 				<!--
 				<p style="color: lightgray;">Interests:</p>
@@ -267,7 +316,7 @@
 
 				<div class="ui three cards stackable">				
 					<div class="ui card hover-card">
-						<div class="ui label top attached">KiRoX - An Operating System</div>
+						<div class="ui label fluid">KiRoX - An Operating System</div>
 						<div class="image">
 							<img src="images/ComeFindMe/kirox.gif" alt="">
 						</div>
@@ -276,49 +325,49 @@
 						</div>
 					</div>
 					<div class="ui card hover-card">
-						<div class="ui label top attached">Self Driving Cars</div>
+						<div class="ui label fluid">Self Driving Cars</div>
 						<div class="image">
 							<img src="images/cars/xdtuwTPVVa.gif" alt="">
 						</div>
 					</div>
 					<div class="ui card hover-card">
-						<div class="ui label top attached">Perplex Experiment</div>
+						<div class="ui label fluid">Perplex Experiment</div>
 						<div class="image">
 							<img src="images/PerplexExperiment/perplexexperiment.gif" alt="">
 						</div>
 					</div>
 					<div class="ui card hover-card winner">
-						<a target="_blank" href="https://itch.io/jam/udc-jam-18/results" class="ui label top attached">Screenshot <div class="detail right floated">UDC Jam #1 Place</div></a>
+						<div class="ui label black fluid">Screenshot <div class="gold-glow detail right floated"><i class="trophy icon achievement-icon gold"></i> UDC Jam #1 Place</div></div>
 						<div class="image">
 							<img src="images/screenshot/screenshot.gif" alt="">
 						</div>
 					</div>
 					<div class="ui card hover-card winner">
-						<a target=_blank href="https://itch.io/jam/exeter-jam-off-game-off/results" class="ui label top attached">Infirun <div class="detail right floated">Exeter Jam #1 Place</div></a>
+						<div class="ui label black fluid">Infirun <div class="gold-glow detail right floated"><i class="trophy icon achievement-icon gold"></i> Exeter Jam #1 Place</div></div>
 						<div class="image">
 							<img src="images/InfiRun/gif2.gif" alt="">
 						</div>
 					</div>
 					<div class="ui card hover-card">
-						<div class="ui label top attached">Rocket Jumper</div>
+						<div class="ui label fluid">Rocket Jumper</div>
 						<div class="image">
 							<img src="images/RocketJumper/gif1.gif" alt="">
 						</div>
 					</div>
-					<div class="ui card hover-card">
-						<div class="ui label top attached">Project Aravoid</div>
+					<div class="ui card hover-card winner">
+						<div class="ui label black fluid">Nycto <div class="gold-glow detail right floated"><i class="trophy icon achievement-icon gold"></i> UDC Jam #2 Place</div></div>
 						<div class="image">
-							<img src="images/aravoid/aravoid.gif" alt="">
+							<img src="images/nycto/fight_alien.gif" alt="">
 						</div>
 					</div>
 					<div class="ui card hover-card">
-						<div class="ui label top attached">Dimension Shifter</div>
+						<div class="ui label fluid">Dimension Shifter</div>
 						<div class="image">
 							<img src="images/dimensionshifter/dimensionshifter.gif" alt="">
 						</div>
 					</div>
 					<div class="ui card hover-card">
-						<div class="ui label top attached">Multiplayer FPS</div>
+						<div class="ui label fluid">Multiplayer FPS</div>
 						<div class="image">
 							<img src="images/multiplayerfps/multiplayerfps2.gif" alt="">
 						</div>
