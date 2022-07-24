@@ -42,6 +42,18 @@ var info = [
 		],
 		link: `<a class="custom-link" href="https://killereks.itch.io/screenshot">Available on itch.io</a>`
 	},
+
+	{
+		name: "Unlit Souls",
+		description: "Made in 3 days as a test of abilities. Inspired heavily by the dark souls series. Combat enemies (stealthly or full on) and defeat the final boss.",
+		features: [
+			"IK solution to match limbs to the surfaces.",
+			"Enemy AI capable of predicting player's actions.",
+			"Fluid movement with stamina system, makes player think about every action in advance.",
+			"Inventory system for equipping armour and weapons. Items have custom properties giving players a stat boost."
+		],
+		link: `<a class="custom-link" href="https://killereks.itch.io/unlitsouls">Available on itch.io</a>`
+	},
 	
 	{
 		name: "Infirun",
@@ -67,16 +79,6 @@ var info = [
 		],
 		link: `<a class="custom-link" href="https://killereks.itch.io/rocket-jumper">Available on itch.io</a>`
 	},
-	
-	// {
-	// 	name: "Project Aravoid",
-	// 	description: "An attempt at a realistic horror game, heavily relying on reactive AI.",
-	// 	features: [
-	// 		"AI that is spatially aware, i.e. will predict where the player ran off to.",
-	// 		"AI is able to remember where intersections are, so will go back to a different path after finding a dead end."
-	// 	],
-	// 	link: `Not available yet.`
-	// },
 
 	{
 		name: "Nycto",
@@ -113,5 +115,25 @@ var info = [
 			"Special kill icons, e.g. Headshot, Last Bullet, Through Object, No Scope"
 		],
 		link: `<a class="custom-link" href="https://killereks.itch.io/multiplayer-fps-v2">Available on itch.io</a>`
+	},
+
+	{
+		name: "A Long Night",
+		description: "RTS like game where you control guards and protect magical meteorite that struck your city. It's shiny and everyone wants it!",
+		features: [
+			"AI that avoids lights and hides in bushes from the player and entities.",
+			"Use your gun and lights to find hiding bandits."
+		],
+		link: `Not available yet.`
+	},
+
+	{
+		name: "Project Aravoid",
+		description: "An attempt at a realistic horror game, heavily relying on reactive AI.",
+		features: [
+			"AI that is spatially aware, i.e. will predict where the player ran off to.",
+			"AI is able to remember where intersections are, so will go back to a different path after finding a dead end."
+		],
+		link: `Not available yet.`
 	},
 ]
