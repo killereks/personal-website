@@ -118,13 +118,15 @@ var info = [
 	},
 
 	{
-		name: "A Long Night",
-		description: "RTS like game where you control guards and protect magical meteorite that struck your city. It's shiny and everyone wants it!",
+		name: "Pitch of the Damned",
+		description: "Infinite arena shooter with upgrades.",
 		features: [
-			"AI that avoids lights and hides in bushes from the player and entities.",
-			"Use your gun and lights to find hiding bandits."
+			"Upgrades with interesting dilemmas, forcing player to balance between both offensive and defensive upgrades.",
+			"Different enemy types, including bosses.",
+			"Procedural IK animations for weapons.",
+			"Great sound design."
 		],
-		link: `Not available yet.`
+		link: `<a class="custom-link" href="https://killereks.itch.io/pitchofthedamned">Available on itch.io</a>`
 	},
 
 	{
