@@ -39,7 +39,7 @@ var info = [
 		],
 		link: `<a class="custom-link" href="https://www.youtube.com/watch?v=qLL0lCnOeB8" target="_blank">See online <i class="youtube icon"></i></a>`,
 		image: "./images/2dengine/img1.png",
-		video: "https://www.youtube.com/watch?v=qLL0lCnOeB8",
+		video: "https://www.youtube.com/embed/qLL0lCnOeB8",
 		tags: ["Game Engine","HTML","CSS","JavaScript"]
 	},
 	{
