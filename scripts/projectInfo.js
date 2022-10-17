@@ -1,6 +1,6 @@
 var info = [
 	{
-		name: "KiRoX - An Operating System",
+		name: "KiRoX OS",
 		description: "Dark web horror game with a custom built Operating System (KiRoX) inspired by internet mysteries such as Cicada 3301.",
 		features: [
 			"Fake operating system featuring various files types like text, image, music and executable.",
@@ -8,7 +8,9 @@ var info = [
 			"Making sure the code is scalable, maintainable and modular.",
 			"Custom editors to make creating websites easy and fast."
 		],
-		link: "Not available yet."
+		link: "Not available yet.",
+		image: "./images/ComeFindMe/kirox.gif",
+		tags: ["Unity","Horror","OS"],
 	},
 	{
 		name: "Self Driving Cars",
@@ -19,7 +21,26 @@ var info = [
 			"Better 2D driving model.",
 			"10x faster collision detection than version 1.0"
 		],
-		link: `<a class="custom-link" href="self-driving-cars.html">Available online</a>`
+		link: `<a class="custom-link" href="self-driving-cars.html" target="_blank">Available online <i class="external alternate icon"></i></a>`,
+		image: "./images/cars/xdtuwTPVVa.gif",
+		tags: ["Neural Network","Genetic Algorithm","C#"]
+	},
+	{
+		name: "2D Game Engine",
+		description: "A custom built 2D game engine with a custom built physics engine.",
+		features: [
+			"Rendering sprites and text using cameras",
+			"Smooth camera system",
+			"Custom built physics engine",
+			"Custom built collision detection",
+			"Custom built raycasting",
+			"Custom built particle system",
+			"Cutscene and dialogue system",
+		],
+		link: `<a class="custom-link" href="https://www.youtube.com/watch?v=qLL0lCnOeB8" target="_blank">See online <i class="youtube icon"></i></a>`,
+		image: "./images/2dengine/img1.png",
+		video: "https://www.youtube.com/watch?v=qLL0lCnOeB8",
+		tags: ["Game Engine","HTML","CSS","JavaScript"]
 	},
 	{
 		name: "Perplex Experiment",
@@ -29,7 +50,9 @@ var info = [
 			"Physics based movement (wallrunning, sliding, grappling hook).",
 			"Designing difficult puzzles with unique solutions."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/the-perplex-experiment">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/the-perplex-experiment" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/PerplexExperiment/perplexexperiment.gif",
+		tags: ["3D Math","Puzzle","Parkour","Physics"]
 	},
 	
 	{
@@ -40,7 +63,10 @@ var info = [
 			"IK for enemies.",
 			"Patrolling AI with deadly accuracy."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/screenshot">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/screenshot" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/screenshot/screenshot.gif",
+		tags: ["3D Math","IK","Stealth","FPS"],
+		winner: "UDC Jam #1 Place"
 	},
 
 	{
@@ -52,7 +78,9 @@ var info = [
 			"Fluid movement with stamina system, makes player think about every action in advance.",
 			"Inventory system for equipping armour and weapons. Items have custom properties giving players a stat boost."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/unlitsouls">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/unlitsouls" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/unlitsouls/combat.gif",
+		tags: ["IK","Stealth","FPS","AI","Inventory"]
 	},
 	
 	{
@@ -63,7 +91,10 @@ var info = [
 			"Procedural level generation.",
 			"Dividing the work up with my team to ship the product in a tight deadline."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/infirun">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/infirun" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/InfiRun/gif1.gif",
+		tags: ["Procedural Generation","Leaderboards"],
+		winner: "Exeter Jam #1 Place"
 	},
 	
 	{
@@ -77,7 +108,9 @@ var info = [
 			"Custom made self-updating launcher to update the game remotely.",
 			"Data compression to reduce replay file size, with up to 70% size reduction."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/rocket-jumper">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/rocket-jumper" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/RocketJumper/gif1.gif",
+		tags: ["Leaderboards","REST API","Secure Login","Replays","Launcher","Data Compression","Physics","Parkour"]
 	},
 
 	{
@@ -88,7 +121,10 @@ var info = [
 			"Use muzzle flash to see where you are.",
 			"Global speedrun leaderboard.",
 		],
-		link: `<a class="custom-link" href="https://panpan58.itch.io/nycto">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://panpan58.itch.io/nycto" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/nycto/fight_alien.gif",
+		tags: ["AI","Leaderboards","FPS","Stealth","Puzzle"],
+		winner: "UDC Jam #2 Place"
 	},
 	
 	{
@@ -101,12 +137,26 @@ var info = [
 			"Functional computer using KiRoX Operating System.",
 			"Seamless teleportation and time travel."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/dimension-shifter">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/dimension-shifter" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/dimensionshifter/dimensionshifter.gif",
+		tags: ["Puzzle","Time Travel","Dimension Portals","UV Light","Liquid Shader","Computer"]
 	},
 	
 	{
 		name: "Multiplayer FPS",
-		description: "Room based multiplayer FPS game with variety of weapons.",
+		description: "Basic Multiplayer FPS game.",
+		features: [
+			"3 different weapons with unique properties",
+			"Sounds synchronized between players",
+		],
+		link: `<a class="custom-link" href="https://killereks.itch.io/multiplayer-fps" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/multiplayerfps/multiplayerfps.gif",
+		tags: ["FPS","Multiplayer","Networking"]
+	},
+
+	{
+		name: "Multiplayer FPS 2",
+		description: "Improved room based multiplayer FPS game with more weapon variety.",
 		features: [
 			"Custom game launcher to update the game remotely.",
 			"King Of The Hill game mode where a player that stands longest in an area wins.",
@@ -114,7 +164,9 @@ var info = [
 			"Projectile and hitscan weapons.",
 			"Special kill icons, e.g. Headshot, Last Bullet, Through Object, No Scope"
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/multiplayer-fps-v2">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/multiplayer-fps-v2" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/multiplayerfps/multiplayerfps2.gif",
+		tags: ["Multiplayer","Launcher","King Of The Hill","Grappling Hook","Vaulting","Projectile","Hitscan","Kill Icons"]
 	},
 
 	{
@@ -126,7 +178,10 @@ var info = [
 			"Procedural IK animations for weapons.",
 			"Great sound design."
 		],
-		link: `<a class="custom-link" href="https://killereks.itch.io/pitchofthedamned">Available on itch.io</a>`
+		link: `<a class="custom-link" href="https://killereks.itch.io/pitchofthedamned" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/PitchOfTheDamned/upgrades.gif",
+		tags: ["Procedural Generation","Procedural IK Animations","Bosses", "Enemy Variety","Sound Design"],
+		winner: "#1 Place in Gameplay & Fun"
 	},
 
 	{
@@ -136,6 +191,85 @@ var info = [
 			"AI that is spatially aware, i.e. will predict where the player ran off to.",
 			"AI is able to remember where intersections are, so will go back to a different path after finding a dead end."
 		],
-		link: `Not available yet.`
+		link: `Not available yet.`,
+		image: "./images/aravoid/aravoid.gif",
+		tags: ["AI","Horror","Space Awareness","Memory"]
+	},
+
+	{
+		name: "Magic Cube",
+		description: "A puzzle game about changing sizes and time travel.",
+		features: [
+			"Time Travel mechanic that keeps track of position, velocity and rotation.",
+			"Mind bending puzzles.",
+			"Refractive portal shader."
+		],
+		link: `<a class="custom-link" href="https://killereks.itch.io/magic-box" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/magiccube/magiccube.gif",
+		tags: ["Puzzle","Time Travel","Shaders"]
+	},
+
+	{
+		name: "Raymarched Fractal",
+		description: "A raymarched fractal with glowing, ambient occlusion and directional lighting.",
+		features: [
+			"Raymarched fractal",
+			"Directional lighting",
+			"Ambient occlusion",
+			"Glowing effect"
+		],
+		link: `<a class="custom-link" href="https://www.shadertoy.com/view/wllXz7" target="_blank">Available on shadertoy.com <i class="external alternate icon"></i></a>`,
+		image: "./images/raymarch/img1.jpg",
+		tags: ["Raymarching","Fractal","Directional Lighting","Shader","Custom Render Pipeline"]
+	},
+
+	{
+		name: "Who Murdered William Etnor?",
+		description: "Puzzle game about a detective trying to solve a case using only found evidence.",
+		features: [
+			"Ability to inspect evidence and combine them to find clues",
+			"Working computer with a google search system",
+			"Place evidence in a 3D environment to physically link clues together",
+			"Custom notes system to keep track of clues",
+			"Pins to mark and connect important evidence",
+		],
+		link: `<a class="custom-link" href="https://killereks.itch.io/who-murdered-william-etnor" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
+		image: "./images/williametnor/williametnor.gif",
+		tags: ["Puzzle","Evidence","Notes","Computer","Detective"]
+	},
+
+	{
+		name: "Student Network",
+		description: "A student network which promotes interaction within the student community. This aims to provide social opportunities by encouraging students to engage with each other in a fun and friendly online environment.",
+		features: [
+			"Custom profile page with a profile picture, bio, and a list of skills and hobbies",
+			"Ability to create posts of different types, such as text, images, and videos",
+			"Ability to like and comment on posts",
+			"Ability to follow other users",
+			"Ability to search for users and posts",
+			"Achievements to encourage users to engage with the site",
+			"Create custom quizzes and flashcards to help with studying",
+		],
+		link: `<a class="custom-link" href="https://github.com/IsaacCheng9/student-network" target="_blank">Available on GitHub <i class="external alternate icon"></i></a>`,
+		image: "./images/studentnetwork/img1.png",
+		tags: ["HTML","CSS","JavaScript","SQLITE3","Flask","Python"]
+	},
+
+	{
+		name: "Travel Buddy",
+		description: "A travel companion to help plan your journey while saving both money and the planet by providing route analysis and a carpool marketplace.",
+		features: [
+			"Ability to search for routes and view the route on a map",
+			"Ability to view the route's carbon footprint and cost using car petrol prices",
+			"Suggests alternative routes to reduce carbon footprint and save money",
+			"Ability to create a carpool and search for carpool matches",
+			"Ability to view carpool matches on a map",
+			"Compete with other users to see who can reduce their carbon footprint the most",
+			"Electrical car suggestion feature to save money and reduce carbon footprint",
+		],
+		link: `<a class="custom-link" href="https://github.com/IsaacCheng9/travel-buddy" target="_blank">Available on GitHub <i class="external alternate icon"></i></a>`,
+		image: "./images/travelbuddy/img1.png",
+		tags: ["HTML","CSS","JavaScript","SQLITE3","Flask","Python"],
+		winner: "Semi-Finalist"
 	},
 ]

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Oskar's Projects</title>
+	<meta name="author" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
+	<!-- HTML Meta Tags -->
+	<title>Oskar's Projects</title>
+	<meta name="description" content="My achievements and projects in one place.">
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://killereks.github.io/personal-website/index.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Oskar's Projects">
+	<meta property="og:description" content="My achievements and projects in one place.">
+	<meta property="og:image" content="https://i.imgur.com/TAXymZ1.png">
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="killereks.github.io">
+	<meta property="twitter:url" content="https://killereks.github.io/personal-website/index.html">
+	<meta name="twitter:title" content="Oskar's Projects">
+	<meta name="twitter:description" content="My achievements and projects in one place.">
+	<meta name="twitter:image" content="https://i.imgur.com/TAXymZ1.png">
+
+	<!-- End Meta Tags -->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
+	<link rel="stylesheet" href="css/semantic.css" type="text/css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.10.1/devicon.min.css">
+</head>
+
+<style>
+	* {
+		font-family: 'Open Sans', 'Lato';
+		/* transition: all 0.4s ease-in-out !important; */
+	}
+
+	canvas {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -10;
+	}
+
+	.icons-list {
+		background-color: rgba(51, 51, 51, 0.75);
+	}
+
+	.icons-list i {
+		font-size: 4em;
+	}
+
+	.icons-list .item {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.socials a {
+		color: rgba(255, 255, 255, 0.75) !important;
+		font-weight: 700;
+		font-size: 2em;
+	}
+
+	.socials {
+		text-align: center;
+		width: 100%;
+
+		background-color: rgba(51, 51, 51, 0.75);
+	}
+
+	.header {
+		background: conic-gradient(#d95641, #b14439, #b2453a, #d25645,
+				#d95641, #b14439, #b2453a, #d25645,
+				#d95641, #b14439, #b2453a, #d25645,
+				#d95641, #b14439, #b2453a, #d25645);
+
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		background-clip: text;
+		text-fill-color: transparent;
+		animation: header-anim 1s infinite;
+
+		text-shadow: 0 0 5px #b2453a;
+		color: #b2453a !important;
+	}
+	
+	.name {
+		color: #FC3565;
+		font-size: 4em;
+		color: transparent;
+		-webkit-text-stroke: 1px #eaeaea;
+		background: url(css/stripe.png) repeat;
+		-webkit-background-clip: text;
+		background-position: 0 0;
+		animation: name-anim 20s linear infinite;
+	}
+	
+	@keyframes name-anim {
+		0% {
+			background-position: 0;
+		}
+		100% {
+			background-position: 250px 0;
+		}
+	}
+	
+	.special-btn {
+		color: white;
+		font-size: 1.2em;
+		border: 1px solid white;
+		padding: 0.5em;
+		margin: 0.5em 0;
+	}
+	
+	.clickable {
+		cursor: pointer;
+	}
+	
+	.ui.cards {
+		perspective: 2000px;
+	}
+	
+	.card {
+		transition: none !important;
+		cursor: zoom-in;
+	}
+	
+	.card > * {
+		pointer-events: none;
+	}
+	
+	.special-detail {
+		display: none;
+	}
+	
+	.preview {
+		position: fixed !important;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		transform: scale(1) !important;
+		transition: 1s;
+		cursor: zoom-out;
+	}
+	
+	.preview .special-detail {
+		display: block;
+		padding: 10px;
+	}
+	
+	#modal {
+		position: fixed;
+		width: 80%;
+		height: 80%;
+		top: 10%;
+		left: 10%;
+		color: white;
+		padding: 25px;
+		background: linear-gradient(135deg, #555, #222);
+		font-size: 24px;
+		opacity: 0;
+		z-index: -1;
+		border-radius: 5px;
+	}
+	
+	#modal footer {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		height: 50px;
+		text-align: center;
+	}
+	
+	#modal.active {
+		z-index: 9999;
+		cursor: zoom-out;
+	}
+	
+	.custom-link {
+		border: white 2px solid;
+		padding: 10px;
+		color: white;
+	}
+	
+	.custom-link:hover {
+		background-color: white;
+		color: black;
+	}
+	
+	#modal img {
+		height: 200px;
+		width: auto;
+	}
+	
+	#modal-title {
+		background: linear-gradient(to left, #777 0, white 10%, #777 20%);
+		background-clip: text;
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: shine 3s linear infinite reverse;
+	}
+	
+	@keyframes shine {
+		to {
+			background-position: 200% center;
+		}
+	}
+	
+	.winner {
+		/* animation: glow 2s linear infinite; */
+	}
+
+	@keyframes glow {
+		0% {
+			filter: drop-shadow(0px 0px 5px #F4D03F);
+		}
+		50% {
+			filter: drop-shadow(0px 0px 15px #F4D03F);
+		}
+		100% {
+			filter: drop-shadow(0px 0px 5px #F4D03F);
+		}
+	}
+
+	.gold {
+    background: conic-gradient(
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800,
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800,
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800,
+      #edc800,
+      #e3b600,
+      #f3cf00,
+      #ffe800
+    );
+  }
+
+  .gold-glow {
+    text-shadow: 0 0 5px #e3b600;
+    color: #e3b600 !important;
+  }
+
+  .achievement-icon {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+	
+  .ui.card .ui.label {
+	  font-size: 1em;
+  }
+
+  .ui.card {
+	  background-color: black !important;
+	  box-shadow: none !important;
+  }
+
+  .ui.card .image {
+	  background-color: black !important;
+	  box-shadow: none !important;
+  }
+
+</style>
+
+<body>
+	<div id="modal">
+		<div style="font-size: 36px;">
+			<img id="modal-img" src="" alt="">
+			<span id="modal-title"></span>
+		</div>
+		<div class="ui divider"></div>
+		<p id="modal-description"></p>
+		
+		<footer>
+			<div class="ui list horizontal">
+				<div class="item" id="modal-footer"></div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="ui segment basic">
+		<div class="ui inverted menu">
+			<a href="index.html" class="active item"><i class="home icon"></i> About me</a>
+<!--			<a href="mywork.html" class="item"><i class="briefcase icon"></i> My Work</a>-->
+<!--			<a href="timeline.html" class="item"><i class="calendar alternate outline icon"></i> Timeline</a>-->
+            <a href="cv.html" class="item"><i class="address card outline icon"></i> CV</a>
+
+			<div class="right floated menu">
+				<a href="https://www.linkedin.com/in/oskar-oramus/" class="item" target="_blank"><i class="icon linkedin" style="color: white;"></i> LinkedIn</a>
+				<a href="https://github.com/killereks" class="item" target="_blank"><i class="icon github" style="color: white;"></i> GitHub</a>
+				<a href="https://codepen.io/killerek" class="item" target="_blank"><i class="icon code" style="color: white;"></i> CodePen</a>
+				<a href="https://www.youtube.com/c/killereks" class="item" target="_blank"><i class="icon youtube" style="color: white;"></i> YouTube</a>
+				<a href="contact.html" class="item"><i class="icon phone" style="color: white;"></i> Contact</a>
+			</div>
+		</div>
+
+		<div class="ui grid">
+			<div class="two wide column"></div>
+			<div class="twelve wide column" style="background-color: rgba(51, 51, 51, 0.75);">
+				<h1 class="name">
+					Oskar Oramus
+				</h1>
+<!--				<h2 style="color: white;">Software Engineer, Game Developer, Web Designer, Mathematician.</h2>-->
+
+				<p style="color: lightgray;">Hi! I'm a bilingual <b>Computer Science</b> student who loves making games and programming. I've been programming for <b id="programming-time"></b> in various languages and have been using Unity Engine for <b id="unity-time"></b>.
+				</p>
+				
+				<p style="color: lightgray; font-weight: 900;">Click on a game card to find out more.</p>
+				
+				<!--
+				<p style="color: lightgray;">Interests:</p>
+				<ul class="ui list" style="color: lightgray !important;">
+					<div class="item"><i class="gamepad icon"></i> Game Development / Game Design</div>
+					<div class="item"><i class="cube icon"></i> 3D Rendering (Rasterization, Ray tracing, Ray marching)</div>
+					<div class="item"><i class="cubes icon"></i> Real Time Physics (Verlet Integration)</div>
+					<div class="item"><i class="icon edit"></i> 3D Modelling + Texturing</div>
+					<div class="item"><i class="icon table"></i> UI/UX Design</div>
+					<div class="item"><i class="icon chess rook"></i> Artificial Intelligence (BT, GOAP, Utility and Machine Learning)</div>
+				</ul>
+				-->
+
+				<div class="ui four cards stackable">				
+					<div class="ui card hover-card">
+						<div class="ui label fluid">KiRoX - An Operating System</div>
+						<div class="image">
+							<img src="images/ComeFindMe/kirox.gif" alt="">
+						</div>
+						<div class="special-detail">
+							Dark web horror game with a custom built Operating System (KiRoX) inspired by internet mysteries such as Cicada 3301.
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label fluid">Self Driving Cars <div class="detail right floated">Available Online <i class="icon globe"></i></div></div>
+						<div class="image">
+							<img src="images/cars/xdtuwTPVVa.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label fluid">Perplex Experiment</div>
+						<div class="image">
+							<img src="images/PerplexExperiment/perplexexperiment.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card winner">
+						<div class="ui label black fluid">Screenshot <div class="gold-glow detail right floated"><i class="trophy icon achievement-icon gold"></i> UDC Jam #1 Place</div></div>
+						<div class="image">
+							<img src="images/screenshot/screenshot.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card winner">
+						<div class="ui label fluid">Unlit Souls</div>
+						<div class="image">
+							<img src="images/unlitsouls/combat.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card winner">
+						<div class="ui label black fluid">Infirun <div class="gold-glow detail right floated"><i class="trophy icon achievement-icon gold"></i> Exeter Jam #1 Place</div></div>
+						<div class="image">
+							<img src="images/InfiRun/gif2.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label fluid">Rocket Jumper</div>
+						<div class="image">
+							<img src="images/RocketJumper/gif1.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card winner">
+						<div class="ui label black fluid">Nycto <div class="gold-glow detail right floated"><i class="trophy icon achievement-icon gold"></i> UDC Jam #2 Place</div></div>
+						<div class="image">
+							<img src="images/nycto/fight_alien.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label fluid">Dimension Shifter</div>
+						<div class="image">
+							<img src="images/dimensionshifter/dimensionshifter.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label fluid">Multiplayer FPS</div>
+						<div class="image">
+							<img src="images/multiplayerfps/multiplayerfps2.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label black fluid">Pitch of the Damned<br><div class="gold-glow detail" style="margin: 0;"><i class="trophy icon achievement-icon gold"></i> #1 Place in Gameplay & Fun</div></div>
+						<div class="image">
+							<img src="images/PitchOfTheDamned/upgrades.gif" alt="">
+						</div>
+					</div>
+					<div class="ui card hover-card">
+						<div class="ui label fluid">Project Aravoid</div>
+						<div class="image">
+							<img src="images/aravoid/aravoid.gif" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
+        <div class="ui segment basic">
+            <p id="my-form-status"></p>
+            <div class="ui form">
+                <form action="https://formspree.io/f/xnqlqgwk" method=POST id="contact-form">
+                    <div class="required field">
+                        <label for="">Your Email</label>
+                        <input type="email" name="_replyto" required>
+                    </div>
+                    <div class="required field">
+                        <label for="">Your message</label>
+                        <textarea name="message" id="" rows="10" required></textarea>
+                    </div>
+
+                    <input type="submit" value="Send" class="ui button green">
+                </form>
+            </div>
+        </div>
+-->
+
+		<br>
+		<br>
+		<br>
+
+		<div class="ui horizontal selection list socials">
+			<a href="https://www.linkedin.com/in/oskar-oramus/" class="item" target="_blank"><i class="icon linkedin" style="color: white;"></i> LinkedIn</a>
+			<a href="https://github.com/killereks" class="item" target="_blank"><i class="icon github" style="color: white;"></i> GitHub</a>
+			<a href="https://codepen.io/killerek" class="item" target="_blank"><i class="icon code" style="color: white;"></i> CodePen</a>
+			<a href="https://www.youtube.com/c/killereks" class="item" target="_blank"><i class="icon youtube" style="color: white;"></i> YouTube</a>
+			<a href="contact.html" class="item"><i class="icon phone" style="color: white;"></i> Contact</a>
+		</div>
+	</div>
+
+	<canvas id="canvas"></canvas>
+
+</body>
+
+</html>
+
+<script src="scripts/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts/date.js"></script>
+<script src="scripts/projectInfo.js"></script>
+<script src="scripts/cardHover.js"></script>
+<script src="scripts/particles.js"></script>
