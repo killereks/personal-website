@@ -19,7 +19,7 @@
 	.project-parent {
 		margin: 1rem;
 		display: flex;
-		overflow: hidden;0
+		overflow: hidden;
 		flex-direction: row;
 		flex-basis: 100%;
 	}
@@ -45,6 +45,7 @@
 		transition: 0.2s;
 		position: relative;
 		cursor: pointer;
+		border: 2px solid #eaeaea;
 	}
 
 	.project .title {
@@ -80,6 +81,32 @@
 		letter-spacing: 0.1rem;
 		background-color: rgba(0, 0, 0, 0.5);
 		padding: 0.5rem;
+	}
+
+	.gold {
+		background: conic-gradient(
+		#edc800,
+		#e3b600,
+		#f3cf00,
+		#ffe800,
+		#edc800,
+		#e3b600,
+		#f3cf00,
+		#ffe800,
+		#edc800,
+		#e3b600,
+		#f3cf00,
+		#ffe800,
+		#edc800,
+		#e3b600,
+		#f3cf00,
+		#ffe800
+		);
+	}
+
+	.gold-glow {
+		text-shadow: 0 0 5px #e3b600;
+		color: #e3b600 !important;
 	}
 
 	.project img {
@@ -166,9 +193,9 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		background-color: #ddd;
 	}
 
-	/* break text up into small width chunks*/
 	.bio {
 		font-size: 1.5rem;
 		line-height: 1.5;
@@ -202,6 +229,108 @@
 		}
 	}
 
+	#scroll-arrow {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 50px;
+		height: 150px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transform: translate(-50%, 0);
+	}
+
+	.arrow {
+		width: 42px;
+		height: 27px;
+	}
+
+	.arrow:nth-child(1){
+		animation: arrow 1s infinite;
+		animation-delay: 0;
+	}
+
+	.arrow:nth-child(2){
+		animation: arrow 1s infinite;
+		animation-delay: 0.1s;
+	}
+
+	.arrow:nth-child(3){
+		animation: arrow 1s infinite;
+		animation-delay: 0.2s;
+	}
+
+	@keyframes arrow {
+		0% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(10px);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	.socials-list {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		background-color: #eee;
+		font-size: 1.5rem;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		margin: 1rem;
+		gap: 1rem;
+	}
+
+	.socials-list a {
+		color: #333;
+		text-decoration: none;
+	}
+
+	.socials-list a:hover {
+		color: #3498db;
+	}
+
+	.socials-list i {
+		margin: 0;
+	}
+
+	.youtube {
+		color: #e62117;
+	}
+
+	.codepen {
+		color: #000;
+	}
+
+	.github {
+		color: #333;
+	}
+
+	.linkedin {
+		color: #0077b5;
+	}
+
+	.mail {
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		/* some fancy purple/blue conic gradient*/
+		background-image: conic-gradient(
+			#552586,
+			#6A359C,
+			#804FB3,
+			#9969C7,
+			#804FB3,
+			#6A359C,
+			#552586
+		);
+	}
+
 </style>
 
 <body>
@@ -214,14 +343,28 @@
 			<span class="caret">|</span>
 		</div>
 		<p class="bio">
-			Hi! I'm a bilingual Computer Science student who loves making games and programming. <br>
-			I've been programming for <b id="programming-time"></b> and have been using Unity Engine for <b id="unity-time"></b></p>
-
-		<button class="ui massive button blue" onclick="toggleBio(false);">See my projects <i class="icon right arrow"></i></button>
+			Captivated in programmative problem solving using mathematics.
+			<br><br>
+			Deep understanding of applied mathematics including but not limited to matrices, vectors, differential equations and differential geometry.
+			<br><br>
+			I've been programming for <b id="programming-time"></b> and have been using Unity Engine for <b id="unity-time"></b>
+		</p>
+		<div class="socials-list">
+			<!-- socials -->
+			<a href="https://www.linkedin.com/in/oskar-oramus/" class="item" target="_blank"><i class="icon linkedin"></i> LinkedIn</a>
+			<a href="https://github.com/killereks" class="item" target="_blank"><i class="icon github"></i> GitHub</a>
+			<a href="https://codepen.io/killerek" class="item" target="_blank"><i class="icon code"></i> CodePen</a>
+			<a href="https://www.youtube.com/c/killereks" class="item" target="_blank"><i class="icon youtube"></i> YouTube</a>
+			<a href="mailto:oskaroramus@gmail.com" class="item"><i class="icon mail"></i> Send Email</a>
+		</div>
+		<div id="scroll-arrow">
+			<img class="arrow" src="./images/arrow-drop-down-line.png" alt="">
+			<img class="arrow" src="./images/arrow-drop-down-line.png" alt="">
+			<img class="arrow" src="./images/arrow-drop-down-line.png" alt="">
+		</div>
 	</div>
 	<div class="page" id="page2">
 		<div class="ui basic segment">	
-			<button class="ui button blue" onclick="toggleBio(true);"><i class="icon left arrow"></i> Back to bio</button>
 			<div class="ui basic segment">
 				<div class="top-project-bar">
 					<div class="project nav-button" onclick="prev()"><i class="ui big icon arrow left"></i></div>
@@ -243,11 +386,13 @@
 						<iframe id="project-video" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 					</div>
 					<div class="eight wide column">
-						<h1 id="project-name">Project Name</h1>
+						<h1 id="project-name">Click a project to find out more</h1>
 						<div class="ui horizontal divider"></div>
-						<p id="project-description">Project Description</p>
+						<p id="project-description"></p>
 						<div class="ui horizontal divider"></div>
-						<div id="project-features" class="ui divided list"></div>
+						<div id="project-features" class="ui divided list">
+
+						</div>
 						<div class="ui horizontal divider"></div>
 						<div id="project-tags"></div>
 						<div class="ui horizontal divider"></div>
@@ -284,8 +429,6 @@
 		}
 	})
 
-	$('#project-info-display').hide();
-
 	$('#project-count').html(`Showing ${info.length} projects`);
 	for (var i = 0; i < info.length; i++) {
 		var project = info[i];
@@ -294,10 +437,10 @@
 		var isWinner = project.hasOwnProperty('winner');
 
 		$(".project-list").append(`
-			<div class="project" onclick="displayProject(${i})">
+			<div class="project" onclick="displayProject(${i}); animateProjects=false;">
 				<img src="${project.image}" alt="">
 				<div class="title">${project.name}</div>
-				${isWinner ? '<div class="winner">'+project.winner+'</div>' : ''}
+				${isWinner ? '<div class="winner gold-glow">'+project.winner+'</div>' : ''}
 			</div>
 		`);
 	}
@@ -327,8 +470,20 @@
 		$(".project-list").animate({
 			marginLeft: targetMargin
 		}, 200);
-
 	}
+
+	var animateProjects = true;
+
+	function loop(){
+		if (!animateProjects) return;
+
+		var index = Math.floor(Math.random() * info.length);
+		displayProject(index);
+
+		setTimeout(loop, 3000);
+	}
+
+	loop();
 
 	function displayProject(index){
 		selectedIndex = index;
@@ -352,6 +507,13 @@
 		$("#project-description").html(project.description);
 		$('#project-image').attr('src', project.image);
 		$("#project-link").html(project.link);
+
+		// clear features
+		// slide from left to right
+		$('#project-info-display').css("opacity",0);
+		$('#project-info-display').animate({
+			opacity: 1
+		}, 200);
 		
 		var tagsHTML = "";
 		for (var i = 0; i < project.tags.length; i++){
@@ -367,21 +529,41 @@
 		}
 
 		$("#project-features").html(featuresHTML);
-
-		$('#project-info-display').show();
 	}
 
-	function toggleBio(state){
-		if (state){
-			$('#page1').show(300);
-			$('#page2').hide(300);
+	var animatingScroll = false;
+
+	document.addEventListener("wheel", (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+
+		// prevent scrolling if we are currently in an animation
+		if (animatingScroll) return;
+
+		var amount = event.deltaY;
+
+		if (amount > 0){
+			// scroll to next page
+			var currentScroll = $(window).scrollTop();
+			var targetScroll = currentScroll + $("#page1").height();
+			$('html, body').animate({
+				scrollTop: targetScroll
+			}, 500);
+			animatingScroll = true;
 		} else {
-			$('#page1').hide(300);
-			$('#page2').show(300);
+			// scroll to previous page
+			$('html, body').animate({
+				scrollTop: 0
+			}, 500);
+			animatingScroll = true;
 		}
-	}
-	
-	toggleBio(true);
+
+		setTimeout(() => {
+			animatingScroll = false;
+		}, 500);
+
+	}, {passive: false});
 
 	function animateJobTitles(){
 		var titles = ["Software Engineer", "Mathematician", "Student"];
@@ -399,7 +581,7 @@
 		
 		var interval = setInterval(function(){
 			if (delay > 0){
-				delay -= 100;
+				delay -= 50;
 				return;
 			}
 
@@ -421,7 +603,7 @@
 					}
 				}
 			}
-		}, 100);
+		}, 50);
 	}
 	animateJobTitles();
 </script>

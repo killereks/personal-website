@@ -181,7 +181,7 @@ var info = [
 		link: `<a class="custom-link" href="https://killereks.itch.io/pitchofthedamned" target="_blank">Available on itch.io <i class="external alternate icon"></i></a>`,
 		image: "./images/PitchOfTheDamned/upgrades.gif",
 		tags: ["Procedural Generation","Procedural IK Animations","Bosses", "Enemy Variety","Sound Design"],
-		winner: "#1 Place in Gameplay & Fun"
+		winner: "#1 in Gameplay & Fun"
 	},
 
 	{
