@@ -141,6 +141,27 @@ var info = [
 		image: "./images/dimensionshifter/dimensionshifter.gif",
 		tags: ["Puzzle","Time Travel","Dimension Portals","UV Light","Liquid Shader","Computer"]
 	},
+
+	{
+		name: "GimSim",
+		description: "Life simulator aimed at giving player as much freedom as possible. Player can create their own life and choose their own path.",
+		features: [
+			"Purchasing groceries and cooking food (cutting vegetables, frying eggs, etc) with visual feedback.",
+			"Working various jobs (delivery, construction, etc).",
+			"Relationships with other characters.",
+			"Computer with custom OS.",
+			"Inventory system.",
+			"Working day/night cycle.",
+			"Illnesses and injuries.",
+			"Character customization.",
+			"WIP crime system with police and jail.",
+			"Localisation support."
+		],
+		link: `Not available. (Abandoned due to scale of the project)`,
+		image: "./images/gimsim/gimsim.jpg",
+		tags: ["Life Simulator","Inventory","Jobs","Relationships","Computer","Day/Night Cycle","Illnesses","Injuries","Character Customization","Crime","Localisation"],
+		video: "https://www.youtube.com/embed/R7I6oTdTMn4"
+	},
 	
 	{
 		name: "Multiplayer FPS",
