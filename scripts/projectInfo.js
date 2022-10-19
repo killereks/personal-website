@@ -291,6 +291,6 @@ var info = [
 		link: `<a class="custom-link" href="https://github.com/IsaacCheng9/travel-buddy" target="_blank">Available on GitHub <i class="external alternate icon"></i></a>`,
 		image: "./images/travelbuddy/img1.png",
 		tags: ["HTML","CSS","JavaScript","SQLITE3","Flask","Python"],
-		winner: "Semi-Finalist"
+		winner: "Finalist"
 	},
 ]
