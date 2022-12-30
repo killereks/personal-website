@@ -14,13 +14,25 @@ var sounds = {
 function displayExperienceTimes(){
 	var now = new Date(Date.now());
 	
-	var programming = dateDiff(new Date(2014, 11, 7), now);
+	var programming = dateDiff(new Date(2014, 10, 7), now);
 	
 	$('#programming-time').html(`${programming.years} years and ${programming.months} months`);
 	
-	var unity = dateDiff(new Date(2017, 11, 16), now);
+	var unity = dateDiff(new Date(2017, 10, 16), now);
 	
 	$('#unity-time').html(`${unity.years} years and ${unity.months} months`)
+
+	var last_update_time = dateDiff(new Date(2022, 11, 29), now);
+
+	if (last_update_time.years > 0){
+		last_update = MathUtils.Englishfy(last_update_time.years, "year", "years");
+	} else if (last_update_time.months > 0){
+		last_update = MathUtils.Englishfy(last_update_time.months, "month", "months");
+	} else if (last_update_time.days > 0){
+		last_update = MathUtils.Englishfy(last_update_time.days, "day", "days");
+	}
+
+	$("#last-update-time").html(last_update+" ago");
 }
 displayExperienceTimes();
 

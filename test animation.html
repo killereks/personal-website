@@ -1,0 +1,209 @@
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: #333;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    
+
+</style>
+
+<div class="container">
+    <canvas id="canvas"></canvas>
+</div>
+
+<script src="scripts/projectInfo.js"></script>
+<script src="Math.js"></script>
+
+<script>
+    class CanvasImage {
+        constructor(image, x, y, width, height){
+            this.image = image;
+
+            this.x = x;
+            this.y = y;
+
+            this.width = 0;
+            this.height = 0;
+
+            this.targetX = x;
+            this.targetY = y;
+            this.targetWidth = width;
+            this.targetHeight = height;
+
+            this.cutX = 0;
+            this.cutY = 0;
+
+            this.cutWidth = image.width;
+            this.cutHeight = image.height;
+        }
+
+        aspect(){
+            return this.image.width / this.image.height;
+        }
+
+        tick(){
+            this.x = MathUtils.Lerp(this.x, this.targetX, 5 * dt);
+            this.y = MathUtils.Lerp(this.y, this.targetY, 5 * dt);
+
+            this.width = MathUtils.Lerp(this.width, this.targetWidth, 5 * dt);
+            this.height = MathUtils.Lerp(this.height, this.targetHeight, 5 * dt);
+        }
+
+        draw(){
+            ctx.drawImage(this.image, this.cutX, this.cutY, this.cutWidth, this.cutHeight, this.x, this.y, this.width, this.height);
+        }
+
+        move(x, y){
+            this.targetX = x;
+            this.targetY = y;
+        }
+
+        resize(width, height){
+            this.targetWidth = width;
+            this.targetHeight = height;
+        }
+
+        clicked(x, y){
+            return  x > this.x &&
+                    x < this.x + this.width &&
+                    y > this.y &&
+                    y < this.y + this.height;
+        }
+    }
+</script>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    var scrollAmount = 0;
+
+    var currentScroll = 0;
+
+    const fps = 100;
+    const dt = 1/fps;
+
+    const gap = 40;
+    const initialX = 400;
+
+    var images = [];
+
+    var clickX = 0;
+    var clickY = 0;
+
+    var selectedIndex = -1;
+
+    function loadImages(){
+        var counter = 0;
+
+        for(var i = 0; i < info.length; i++){
+            (function(i){
+                var img = new Image();
+                img.src = info[i].image;
+
+                img.onload = function(){
+                    var image = new CanvasImage(img, 0, 0, 600, 400);
+                    images[i] = image;
+
+                    counter++;
+                    if (counter == info.length){
+                        renderAnimations();
+                    }
+                }
+            })(i);
+        }
+    }
+
+
+    loadImages();
+    
+    function renderAnimations(){
+        ctx.fillStyle = "#333";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        var x = initialX;
+
+        currentScroll = MathUtils.Lerp(currentScroll, scrollAmount, 5 * dt);
+
+        x += currentScroll;
+
+        for(var i = 0; i < images.length; i++){
+            var image = images[i];
+
+            image.tick();
+
+            var height = 400;
+            var width = image.aspect() * height;
+
+            var y = canvas.height/2 - height/2;
+
+            var percentage = MathUtils.InverseLerp(0, canvas.width, x + width / 2);
+            percentage = MathUtils.Clamp(percentage, 0, 1);
+
+            if (selectedIndex == -1){
+                var cut_width = image.width * 0.7;
+                var cut_x = MathUtils.Lerp(0, image.width - cut_width, percentage);
+
+                image.resize(width, height);
+
+                image.cutX = cut_x;
+                image.cutWidth = cut_width;
+
+                image.x = x;
+                image.y = y;
+
+                image.draw();
+
+                ctx.font = "20px Arial";
+                ctx.fillStyle = "white";
+                ctx.textAlign = "center";
+                var debugString = `${info[i].name}`;
+                ctx.fillText(debugString, x + width/2, y + height + 50);
+            } else {
+                if (i == selectedIndex){
+                    image.resize(canvas.width, canvas.height);
+                    image.move(0, 0);
+                    image.draw();
+                } else {
+                    image.cutX = 0;
+                    image.cutWidth = image.width;
+                    image.move(x, canvas.height - height);
+                    image.draw();
+                }
+            }
+
+            if (selectedIndex != i && image.clicked(clickX, clickY)){
+                selectedIndex = i;
+                console.log(i);
+                clickX = 0;
+                clickY = 0;
+            }
+
+            x += width;
+            x += gap;
+        }
+
+        setTimeout(renderAnimations, 1000/60);
+    }
+
+    canvas.addEventListener("mousedown", function(e){
+        clickX = e.clientX;
+        clickY = e.clientY;
+    });
+
+    canvas.addEventListener("wheel", function(e){
+        scrollAmount -= e.deltaY * 5;
+        
+        scrollAmount = Math.min(scrollAmount, 0);
+    });
+
+
+</script>

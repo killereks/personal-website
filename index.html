@@ -16,6 +16,10 @@
 		font-family: "Inter", sans-serif;
 	}
 
+	body {
+		background-color: #eaeaea;
+	}
+
 	.project-parent {
 		margin: 1rem;
 		display: flex;
@@ -42,10 +46,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: 0.2s;
+		transition: 0.3s all cubic-bezier(0.34, 1.56, 0.64, 1);
 		position: relative;
 		cursor: pointer;
 		border: 2px solid #eaeaea;
+
+		animation: project-show 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+	}
+
+	.project.hidden {
+		animation: project-hide 0.5s cubic-bezier(0.36, 0, 0.66, -0.56) forwards;
 	}
 
 	.project .title {
@@ -110,10 +120,11 @@
 	}
 
 	.project img {
-		width: 100%;
 		height: 100%;
+		width: auto;
 		object-fit: cover;
-		transition: 0.2s;
+		object-position: center;
+		transition: 0.2s transform;
 	}
 
 	/* .project:hover {
@@ -122,7 +133,7 @@
 	} */
 
 	.project:hover img {
-		transform: scale(1.4);
+		transform: scale(1.2);
 	}
 
 	.top-project-bar {
@@ -166,6 +177,7 @@
 	}
 
 	#project-count {
+		text-align: center;
 		font-size: 1.5rem;
 		font-weight: 300;
 	}
@@ -204,6 +216,7 @@
 		background-color: #ccc;
 		padding: 1rem;
 		border-radius: 0.5rem;
+		z-index: 10;
 	}
 
 	.caret {
@@ -283,12 +296,13 @@
 		font-size: 1.5rem;
 		padding: 1rem;
 		border-radius: 0.5rem;
-		margin: 1rem;
+		margin: 1.5rem;
 		gap: 1rem;
+		z-index: 10;
 	}
 
 	.socials-list a {
-		color: #333;
+		color: #444;
 		text-decoration: none;
 	}
 
@@ -331,23 +345,100 @@
 		);
 	}
 
+	#undraw {
+		position: absolute;
+		float: left;
+		width: 60%;
+		height: auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0.2;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	.sort-list {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin: 1rem;
+	}
+
+	.sort-label {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		color: #333;
+		font-weight: 600;
+		background-color: #eaeaea;
+		padding: 0.75rem !important;
+		text-align: center;
+		border: 2px solid #333;
+
+		transition: all 0.2s ease-in-out;
+	}
+
+	.sort-label:hover {
+		color: #333;
+		background-color: #a7a9ac;
+		cursor: pointer;
+	}
+
+	.sort-label.active {
+		color: #222;
+		background-color: #4caf50;
+	}
+
+	.sort-label img {
+		width: 2em;
+		height: 2em;
+		float: left;
+		margin-right: 0.5rem;
+	}
+
+	@keyframes project-hide {
+		from {
+			transform: scale(1);
+		}
+		to {
+			transform: scale(0);
+		}
+	}
+
+	@keyframes project-show {
+		from {
+			transform: scale(0);
+		}
+		to {
+			transform: scale(1);
+		}
+	}
+
+
 </style>
 
 <body>
 	<div class="page" id="page1">
-		<div class="header" style="font-size: 4rem;">
-			Oskar Oramus
+		<img id="undraw" src="images/undraw_feeling_proud_qne1.png" alt="">
+		<div id="name" class="header" style="font-size: 4rem;">
+			<b>Oskar Oramus</b>
 		</div>
 		<div class="header">
 			<div id="job-title" style="font-size: 2rem;"></div>
 			<span class="caret">|</span>
 		</div>
 		<p class="bio">
-			Captivated in programmative problem solving using mathematics.
+			I am passionate about using mathematics to solve complex problems in programming, 
+			and have a deep understanding of applied mathematics, including matrices, vectors, 
+			and differential equations.
 			<br><br>
-			Deep understanding of applied mathematics including but not limited to matrices, vectors, differential equations and differential geometry.
-			<br><br>
-			I've been programming for <b id="programming-time"></b> and have been using Unity Engine for <b id="unity-time"></b>
+			With over <b id="programming-time"></b> of experience in programming and <b id="unity-time"></b> of experience in Unity 
+			and game development, I am excited to apply my skills and continue to learn and grow in this field.
 		</p>
 		<div class="socials-list">
 			<!-- socials -->
@@ -357,6 +448,9 @@
 			<a href="https://www.youtube.com/c/killereks" class="item" target="_blank"><i class="icon youtube"></i> YouTube</a>
 			<a href="mailto:oskaroramus@gmail.com" class="item"><i class="icon mail"></i> Send Email</a>
 		</div>
+		<div>
+			Site last updated: <b id="last-update-time"></b>
+		</div>
 		<div id="scroll-arrow">
 			<img class="scroll-arrow" src="./images/arrow-drop-down-line.png" alt="">
 			<img class="scroll-arrow" src="./images/arrow-drop-down-line.png" alt="">
@@ -364,8 +458,23 @@
 		</div>
 	</div>
 	<div class="page" id="page2">
-		<div class="ui basic segment">	
+		<div class="ui basic segment">
 			<div class="ui basic segment">
+				<div class="sort-list">
+					<div class="sort-label" onclick="setSize(200);">Small</div>
+					<div class="sort-label" onclick="setSize(350);">Medium</div>
+					<div class="sort-label" onclick="setSize(500);">Large</div>
+				</div>
+				<div class="sort-list">
+					Click to filter: 
+					<div class="sort-label" onclick='toggleSearch(this, "ai");'><img src="./icons/ai.png"> Artificial Intelligence</div>
+					<div class="sort-label" onclick='toggleSearch(this, "game engine");'><img src="./icons/game.png"> Game Engines</div>
+					<div class="sort-label" onclick='toggleSearch(this, "game");'><img src="./icons/console.png"> Games</div>
+					<div class="sort-label" onclick='toggleSearch(this, "maths");'><img src="./icons/calculating.png"> Mathematics</div>
+					<div class="sort-label" onclick='toggleSearch(this, "networking");'><img src="./icons/computer.png"> Networking</div>
+					<div class="sort-label" onclick='toggleSearch(this, "web dev");'><img src="./icons/browser.png"> Web Development</div>
+				</div>
+				<div id="project-count"></div>
 				<div class="top-project-bar">
 					<div class="project nav-button" onclick="prev()"><i class="ui big icon arrow left"></i></div>
 					<div class="project-parent">
@@ -373,7 +482,6 @@
 					</div>
 					<div class="project nav-button" onclick="next()"><i class="ui big icon arrow right"></i></div>
 				</div>
-				<div id="project-count"></div>
 			</div>
 	
 			<div class="ui basic segment" id="project-info-display">
@@ -381,7 +489,7 @@
 				<div class="ui stackable two column grid">
 					<div class="eight wide column">
 						<!-- stretch image to fit -->
-						<img id="project-image" src="" style="width: 100%; height: 100%; object-fit: cover;">
+						<img id="project-image" src="" style="max-height: 100%; width: 100%; height: auto; object-fit: contain;">
 						<!-- youtube video embed -->
 						<iframe id="project-video" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 					</div>
@@ -401,6 +509,7 @@
 			</div>
 	
 		</div>
+		<a href="https://www.flaticon.com/" title="server icons">Icons taken from flaticon.com</a>
 	</div>
 
 </body>
@@ -410,11 +519,67 @@
 <script src="scripts/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts/date.js"></script>
+<script src="Math.js"></script>
 <script src="scripts/projectInfo.js"></script>
 <script src="scripts/cardHover.js"></script>
 
 
 <script>
+	var searchTags = [];
+
+	function toggleSearch(element, tag) {
+		var index = searchTags.indexOf(tag);
+		if (index == -1) {
+			searchTags.push(tag);
+			$(element).addClass("active");
+		} else {
+			searchTags.splice(index, 1);
+			$(element).removeClass("active");
+		}
+
+		$(".project-list").animate({
+			marginLeft: 0
+		}, 500);
+
+		updateProjects();
+	}
+
+	function updateProjects(){
+		var count = 0;
+
+		$('.project-thumbnail').each(function(index, element) {
+			var project = info[index];
+			var tags = project.searchTags;
+			var show = false;
+
+			if (searchTags.length == 0) show = true;
+
+			for (var i = 0; i < searchTags.length; i++) {
+				if (tags.includes(searchTags[i])) {
+					show = true;
+					break;
+				}
+			}
+
+			var rand = Math.random();
+
+			if (show) {
+				count++;
+				$(element).removeClass("hidden");
+				$(element).css("display", "block");
+			} else {
+				$(element).addClass("hidden");
+
+				setTimeout(function() {
+					$(element).css("display", "none");
+					$(element).css("object-position", "center");
+				}, 350 + rand * 150);
+			}
+		})
+
+		$('#project-count').html(`Showing ${count} projects`);
+	}
+
 	// sort based on if project has a winner property
 	info.sort((a,b) => {
 		var aWinner = a.hasOwnProperty("winner");
@@ -429,7 +594,6 @@
 		}
 	})
 
-	$('#project-count').html(`Showing ${info.length} projects`);
 	for (var i = 0; i < info.length; i++) {
 		var project = info[i];
 
@@ -437,7 +601,7 @@
 		var isWinner = project.hasOwnProperty('winner');
 
 		$(".project-list").append(`
-			<div class="project" onclick="displayProject(${i}); animateProjects=false;">
+			<div class="project project-thumbnail" onclick="displayProject(${i});">
 				<img src="${project.image}" alt="">
 				<div class="title">${project.name}</div>
 				${isWinner ? '<div class="winner gold-glow">'+project.winner+'</div>' : ''}
@@ -455,7 +619,9 @@
 		}
 		$(".project-list").animate({
 			marginLeft: targetMargin
-		}, 200);
+		}, 500);
+
+		parallaxEffect();
 	}
 	function next(){
 		// increase margin, unless we are at the end of projects
@@ -469,7 +635,9 @@
 
 		$(".project-list").animate({
 			marginLeft: targetMargin
-		}, 200);
+		}, 500);
+		
+		parallaxEffect();
 	}
 
 	var animateProjects = true;
@@ -486,6 +654,8 @@
 	loop();
 
 	function displayProject(index){
+		animateProjects = false;
+
 		selectedIndex = index;
 		var project = info[index];
 		
@@ -606,4 +776,43 @@
 		}, 50);
 	}
 	animateJobTitles();
+
+	function parallaxEffect(){
+		var window_width = $(window).width();
+
+		$('.project-thumbnail img').each(function(){
+			var posX = $(this).offset().left;
+
+			var percentage = posX / window_width;
+			percentage = MathUtils.Clamp01(percentage);
+
+			percentage -= 0.5;
+			percentage *= 0.2;
+			
+			$(this).css("transform", `translateX(${percentage * 100}%)`);
+			// animate transform
+		});
+	}
+
+	$('.project-thumbnail').mousemove(function(e){
+		var clientX = e.clientX;
+		var posX = $(this).offset().left;
+		var percentage = (clientX - posX) / $(this).width();
+		percentage = MathUtils.Clamp01(percentage);
+
+		percentage -= 0.5;
+
+		$(this).find("img").css("margin-left", `${percentage * 100}%`);
+	});
+
+	$('.project-thumbnail').mouseleave(function(e){
+		$(this).find("img").animate({
+			marginLeft: 0
+		}, 200);
+	});
+
+	function setSize(size){
+		$('.project-thumbnail').css("width", size+"px");
+	}
+
 </script>
