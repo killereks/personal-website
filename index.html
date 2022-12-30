@@ -176,6 +176,11 @@
 		color: #eaeaea;
 	}
 
+	.nav-button:hover {
+		background-color: #222;
+		color: #eaeaea;
+	}
+
 	#project-count {
 		text-align: center;
 		font-size: 1.5rem;
@@ -258,6 +263,7 @@
 	.scroll-arrow {
 		width: 42px;
 		height: 27px;
+		cursor: pointer;
 	}
 
 	.scroll-arrow:nth-child(1){
@@ -278,12 +284,15 @@
 	@keyframes arrow {
 		0% {
 			transform: translateY(0);
+			opacity: 0.2;
 		}
 		50% {
 			transform: translateY(10px);
+			opacity: 1;
 		}
 		100% {
 			transform: translateY(0);
+			opacity: 0.2;
 		}
 	}
 
@@ -373,6 +382,8 @@
 		justify-content: center;
 		align-items: center;
 
+		user-select: none;
+
 		color: #333;
 		font-weight: 600;
 		background-color: #eaeaea;
@@ -419,6 +430,21 @@
 		}
 	}
 
+	.custom-label {
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+		background-color: #d4e4fa;
+		color: #0e4fa6;
+		border: 0;
+		display: inline-block;
+		margin: 0.3rem;
+	}
+
+	.project-tags {
+		gap: 0.5rem;
+		width: 100%;
+	}
+
 
 </style>
 
@@ -451,7 +477,7 @@
 		<div>
 			Site last updated: <b id="last-update-time"></b>
 		</div>
-		<div id="scroll-arrow">
+		<div id="scroll-arrow" onclick="scrollDown();">
 			<img class="scroll-arrow" src="./images/arrow-drop-down-line.png" alt="">
 			<img class="scroll-arrow" src="./images/arrow-drop-down-line.png" alt="">
 			<img class="scroll-arrow" src="./images/arrow-drop-down-line.png" alt="">
@@ -474,7 +500,6 @@
 					<div class="sort-label" onclick='toggleSearch(this, "networking");'><img src="./icons/computer.png"> Networking</div>
 					<div class="sort-label" onclick='toggleSearch(this, "web dev");'><img src="./icons/browser.png"> Web Development</div>
 				</div>
-				<div id="project-count"></div>
 				<div class="top-project-bar">
 					<div class="project nav-button" onclick="prev()"><i class="ui big icon arrow left"></i></div>
 					<div class="project-parent">
@@ -482,23 +507,24 @@
 					</div>
 					<div class="project nav-button" onclick="next()"><i class="ui big icon arrow right"></i></div>
 				</div>
+				<div id="project-count"></div>
 			</div>
 	
 			<div class="ui basic segment" id="project-info-display">
 				<!-- Project Display -->
 				<div class="ui stackable two column grid">
-					<div class="eight wide column">
+					<div class="seven wide column">
 						<!-- stretch image to fit -->
 						<img id="project-image" src="" style="max-height: 100%; width: 100%; height: auto; object-fit: contain;">
 						<!-- youtube video embed -->
 						<iframe id="project-video" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 					</div>
-					<div class="eight wide column">
+					<div class="nine wide column">
 						<h1 id="project-name">Click a project to find out more</h1>
 						<div class="ui horizontal divider"></div>
 						<p id="project-description"></p>
 						<div class="ui horizontal divider"></div>
-						<div id="project-features" class="ui divided list">
+						<div id="project-features" class="ui divided list big">
 
 						</div>
 						<div class="ui horizontal divider"></div>
@@ -566,7 +592,7 @@
 			if (show) {
 				count++;
 				$(element).removeClass("hidden");
-				$(element).css("display", "block");
+				$(element).css("display", "flex");
 			} else {
 				$(element).addClass("hidden");
 
@@ -608,6 +634,8 @@
 			</div>
 		`);
 	}
+	
+	$('#project-count').html(`Showing ${info.length} projects`);
 
 	const offsetAmount = 800;
 
@@ -688,7 +716,7 @@
 		var tagsHTML = "";
 		for (var i = 0; i < project.tags.length; i++){
 			var tag = project.tags[i];
-			tagsHTML += `<div class="ui big basic purple label">${tag}</div>`;
+			tagsHTML += `<div class="custom-label">${tag}</div>`;
 		}
 		$("#project-tags").html(tagsHTML);
 
@@ -701,12 +729,15 @@
 		$("#project-features").html(featuresHTML);
 	}
 
+	function scrollDown(){
+		$('html, body').animate({
+			scrollTop: $("#page1").height()
+		}, 500);
+	}
+
 	var animatingScroll = false;
 
 	document.addEventListener("wheel", (event) => {
-		event.preventDefault();
-		event.stopPropagation();
-		event.stopImmediatePropagation();
 
 		// prevent scrolling if we are currently in an animation
 		if (animatingScroll) return;
@@ -714,6 +745,9 @@
 		var amount = event.deltaY;
 
 		if (amount > 0){
+			event.preventDefault();
+			event.stopPropagation();
+			event.stopImmediatePropagation();
 			// scroll to next page
 			var currentScroll = $(window).scrollTop();
 			var targetScroll = currentScroll + $("#page1").height();
@@ -723,10 +757,10 @@
 			animatingScroll = true;
 		} else {
 			// scroll to previous page
-			$('html, body').animate({
-				scrollTop: 0
-			}, 500);
-			animatingScroll = true;
+			// $('html, body').animate({
+			// 	scrollTop: 0
+			// }, 500);
+			// animatingScroll = true;
 		}
 
 		setTimeout(() => {
