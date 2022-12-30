@@ -427,5 +427,57 @@ var info = [
 		video: "https://www.youtube.com/embed/HRe3cyntDJc",
 		tags: ["Animation", "FPS","Unity","C#"],
 		searchTags: ["game engine"]
+	},
+	{
+		name: "Machine Learning using Unconventional Methods",
+		description: "A paper that explores different types of machine learning techniques and how they differ. This paper also explores the pros and cons of each technique.",
+		features: [
+			"Explains the different types of machine learning techniques",
+			"Explains the pros and cons of each technique",
+			"Explains how each technique works",
+		],
+		link: `<a class="custom-link" href="./papers/outsideTheBox.html" target="_blank">Available on this website <i class="external alternate icon"></i></a>`,
+		image: "./stock images/ml.jpg",
+		tags: ["Machine Learning","Paper","Maths"],
+		searchTags: ["paper","maths","ai"]
+	},
+	{
+		name: "Jacob & Gauss-Seidel Methods",
+		description: "A paper that explores the Jacob and Gauss-Seidel methods for solving linear equations. This paper also explores the pros and cons of each method.",
+		features: [
+			"Explains the Jacob and Gauss-Seidel methods",
+			"Explains the pros and cons of each method",
+			"Explains how each method works",
+		],
+		link: `<a class="custom-link" href="./papers/algorithms.html" target="_blank">Available on this website <i class="external alternate icon"></i></a>`,
+		image: "./stock images/maths.jpg",
+		tags: ["Maths","Paper"],
+		searchTags: ["paper","maths"]
+	},
+	{
+		name: "Predicting Company Success",
+		description: "A paper that explores the different factors that contribute to a company's success. This paper also explores the pros and cons of each factor.",
+		features: [
+			"Explains the different factors that contribute to a company's success",
+			"Explains the pros and cons of each factor",
+			"Explains how each factor works",
+		],
+		link: `<a class="custom-link" href="./papers/lfd.html" target="_blank">Available on this website <i class="external alternate icon"></i></a>`,
+		image: "./stock images/company.jpg",
+		tags: ["Machine Learning","Paper","Maths"],
+		searchTags: ["paper","ai"]
+	},
+	{
+		name: "Reinforcement Learning for ATC",
+		description: "A paper that explores the use of reinforcement learning for air traffic control. This paper also explores the pros and cons of using reinforcement learning for ATC.",
+		features: [
+			"Explains the use of reinforcement learning for air traffic control",
+			"Explains the pros and cons of using reinforcement learning for ATC",
+			"Explains how reinforcement learning works",
+		],
+		link: `<a class="custom-link" href="./papers/lit review.html" target="_blank">Available on this website <i class="external alternate icon"></i></a>`,
+		image: "./stock images/atc.jpg",
+		tags: ["Machine Learning","Paper","Maths"],
+		searchTags: ["paper","ai","maths"]
 	}
 ]
