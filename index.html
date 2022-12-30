@@ -4,6 +4,8 @@
 <head>
 	<title>Oskar's Projects</title>
 
+	<meta charset="utf-8">
+
 	<link rel="icon" type="image/x-icon" href="./icons/research-paper.png">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
@@ -516,7 +518,7 @@
 	
 			<div class="ui basic segment" id="project-info-display">
 				<!-- Project Display -->
-				<div class="ui stackable two column grid">
+				<div class="ui doubling two column grid">
 					<div class="seven wide column">
 						<!-- stretch image to fit -->
 						<img id="project-image" src="" style="max-height: 100%; width: 100%; height: auto; object-fit: contain;">
@@ -539,10 +541,10 @@
 			</div>
 	
 		</div>
-		<a href="https://www.flaticon.com/" title="server icons">Icons taken from flaticon.com</a>
-		Photo by <a href="https://unsplash.com/es/@ikukevk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kevin Ku</a> on <a href="https://unsplash.com/photos/w7ZyuGYNpRQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-		Photo by <a href="https://unsplash.com/@antoine1003?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Dautry</a> on <a href="https://unsplash.com/photos/05A-kdOH6Hw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-		Photo by <a href="https://unsplash.com/@abbe_sublett?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Abbe Sublett</a> on <a href="https://unsplash.com/wallpapers/companies?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+		<a href="https://www.flaticon.com/" title="server icons">Icons taken from flaticon.com</a><br>
+		Photo by <a href="https://unsplash.com/es/@ikukevk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kevin Ku</a> on <a href="https://unsplash.com/photos/w7ZyuGYNpRQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
+		Photo by <a href="https://unsplash.com/@antoine1003?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Dautry</a> on <a href="https://unsplash.com/photos/05A-kdOH6Hw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
+		Photo by <a href="https://unsplash.com/@abbe_sublett?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Abbe Sublett</a> on <a href="https://unsplash.com/wallpapers/companies?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
 		Photo by <a href="https://unsplash.com/@palumpawump?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Palumpawump</a> on <a href="https://unsplash.com/photos/VhkDi-FjHe8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 	</div>
 
@@ -858,5 +860,13 @@
 	function setSize(size){
 		$('.project-thumbnail').css("width", size+"px");
 	}
+
+	$(window).resize(function(){
+		var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		if (width < 768){
+			$('.sort-list').css("flex-direction", "column");
+		}
+	});
+
 
 </script>
