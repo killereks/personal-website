@@ -149,6 +149,7 @@ var info = [
 			"Option to choose number of iterations and the error tolerance.",
 			"Grapical representation of the solution."
 		],
+		tags: ["Python","Math"],
 		link: `<a class="custom-link" href="https://www.youtube.com/watch?v=CRqCU-vqx_s" target="_blank">See online <i class="youtube icon"></i></a>`,
 		image: "./images/linear_solver/image1.jpg",
 		video: "https://www.youtube.com/embed/CRqCU-vqx_s",
