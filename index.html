@@ -6,6 +6,13 @@
 
 	<meta charset="utf-8">
 
+	<meta property="og:title" content="Oskar's Projects">
+	<meta property="og:site_name" content="Oskar's Projects">
+	<meta property="og:url" content=https://www.oskaroramus.dev/>
+	<meta property="og:description" content="">
+	<meta property="og:type" content=website>
+	<meta property="og:image" content=https://imgur.com/LpviWPu>
+
 	<link rel="icon" type="image/x-icon" href="./icons/research-paper.png">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" type="text/css">
@@ -735,7 +742,7 @@
 		var featuresHTML = "";
 		for (var i = 0; i < project.features.length; i++){
 			var feature = project.features[i];
-			featuresHTML += `<div class="item"><i class="ui icon check" style="color: #4caf50;"></i> ${feature}</div>`;
+			featuresHTML += `<div class="item" style="padding: 10px 0;"><i class="ui icon check" style="color: #4caf50;"></i> ${feature}</div>`;
 		}
 
 		$("#project-features").html(featuresHTML);
