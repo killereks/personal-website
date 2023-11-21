@@ -36,6 +36,47 @@ var info = [
 		searchTags: ["game engine", "maths"]
 	},
 	{
+		name: "3D Game Engine v2",
+		description: "Custom built 3D engine with ECS architecture. This engine is capable of rendering 3D models with shadow mapping. It also includes a custom built physics system to be able to raycast and click on objects.",
+		features: [
+			"Rendering 3D models",
+			"Shadow mapping",
+			"Raycasting",
+			"Physics system",
+			"Custom built ECS architecture",
+		],
+		link: `<a class="custom-link" href="https://github.com/killereks/CPP-Game-Engine" target="_blank">Available on GitHub <i class="external alternate icon"></i></a>`,
+		image: "./images/3d game engine v2/image1.png",
+		tags: ["C++","3D","Rendering","Graphics","Engine","Math","OpenGL"],
+		searchTags: ["game engine", "maths"]
+	},
+	{
+		name: "3D Path Tracer",
+		description: "A path tracer written in C++ capable of rendering complex scenes with realistic lighting.",
+		features: [
+			"Path tracing",
+			"Rendering complex scenes",
+			"Realistic lighting"
+		],
+		link: `<a class="custom-link" href="https://github.com/killereks/CPP-Path-Tracer" target="_blank">Available on GitHub <i class="external alternate icon"></i></a>`,
+		image: "./images/path tracer/image1.png",
+		tags: ["C++","3D","Rendering","Graphics","Engine","Math", "OpenGL"],
+		searchTags: ["game engine", "maths"]
+	},
+	{
+		name: "Reinforcement Learning for Air Traffic Control (FULL)",
+		description: "A paper that explores the use of reinforcement learning for air traffic control using different techniques. This paper also explores the pros and cons of using reinforcement learning for ATC.",
+		features: [
+			"Reinforcement Learning using DDQN",
+			"Trained using Transfer Learning",
+			"Explains the mathematical concepts behind reinforcement learning",
+		],
+		link: `<a class="custom-link" href="./papers/dissertation.html" target="_blank">Available on this website <i class="external alternate icon"></i></a>`,
+		image: "./stock images/plane.jpg",
+		tags: ["Machine Learning","Paper","Maths"],
+		searchTags: ["paper","ai","maths"]
+	},
+	{
 		name: "Picture Classifier",
 		description: "A simple picture classifier that uses a custom built neural network to classify pictures. The neural network is trained on cat/dog dataset (~8000 images). Images are of size 32x32 and neural network contains 32x32x3 number of inputs and 2 outputs. It needs to determine if picture is a cat or dog.",
 		features: [
@@ -340,7 +381,7 @@ var info = [
 		link: `<a class="custom-link" href="https://www.shadertoy.com/view/wllXz7" target="_blank">Available on shadertoy.com <i class="external alternate icon"></i></a>`,
 		image: "./images/raymarch/img1.jpg",
 		tags: ["Raymarching","Fractal","Directional Lighting","Shader","Custom Render Pipeline"],
-		searchTags: ["game engine", "maths"]
+		searchTags: ["maths"]
 	},
 
 	{
@@ -427,7 +468,7 @@ var info = [
 		link: `<a class="custom-link" href="https://www.youtube.com/watch?v=HRe3cyntDJc" target="_blank">Available on YouTube <i class="external alternate icon"></i></a>`,
 		video: "https://www.youtube.com/embed/HRe3cyntDJc",
 		tags: ["Animation", "FPS","Unity","C#"],
-		searchTags: ["game engine"]
+		searchTags: ["maths"]
 	},
 	{
 		name: "Machine Learning using Unconventional Methods",

@@ -22,7 +22,7 @@ function displayExperienceTimes(){
 	
 	$('#unity-time').html(`${unity.years} years and ${unity.months} months`)
 
-	var last_update_time = dateDiff(new Date(2022, 11, 29), now);
+	var last_update_time = dateDiff(new Date(2023, 10, 21, 21, 4), now);
 
 	if (last_update_time.years > 0){
 		last_update = MathUtils.Englishfy(last_update_time.years, "year", "years");
@@ -30,6 +30,12 @@ function displayExperienceTimes(){
 		last_update = MathUtils.Englishfy(last_update_time.months, "month", "months");
 	} else if (last_update_time.days > 0){
 		last_update = MathUtils.Englishfy(last_update_time.days, "day", "days");
+	} else if (last_update_time.hours > 0){
+		last_update = MathUtils.Englishfy(last_update_time.hours, "hour", "hours");
+	} else if (last_update_time.minutes > 0){
+		last_update = MathUtils.Englishfy(last_update_time.minutes, "minute", "minutes");
+	} else {
+		last_update = MathUtils.Englishfy(last_update_time.seconds, "second", "seconds");
 	}
 
 	$("#last-update-time").html(last_update+" ago");

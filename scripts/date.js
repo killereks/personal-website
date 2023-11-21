@@ -40,6 +40,9 @@ function dateDiff(dt1, dt2)
     ret['years'] = year2 - year1;
     ret['months'] = month2 - month1;
     ret['days'] = day2 - day1;
+    ret['hours'] = dt2.getHours() - dt1.getHours();
+    ret['minutes'] = dt2.getMinutes() - dt1.getMinutes();
+    ret['seconds'] = dt2.getSeconds() - dt1.getSeconds();
 
     /*
      * Now we deal with the negatives

@@ -453,17 +453,25 @@
 
 	.custom-label {
 		border-radius: 0.5rem;
-		padding: 0.5rem;
+		padding: 0.4rem 0.5rem;
 		background-color: #d4e4fa;
 		color: #0e4fa6;
 		border: 0;
 		display: inline-block;
 		margin: 0.3rem;
+		border: 1px solid #0e4fa6;
 	}
 
 	.project-tags {
 		gap: 0.5rem;
 		width: 100%;
+	}
+
+	footer {
+		font-size: 1rem;
+		margin: 1rem;
+		background-color: #ddd;
+		padding: 1em;
 	}
 
 
@@ -560,11 +568,18 @@
 			</div>
 	
 		</div>
+		<footer>
 		<a href="https://www.flaticon.com/" title="server icons">Icons taken from flaticon.com</a><br>
 		Photo by <a href="https://unsplash.com/es/@ikukevk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kevin Ku</a> on <a href="https://unsplash.com/photos/w7ZyuGYNpRQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
 		Photo by <a href="https://unsplash.com/@antoine1003?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Dautry</a> on <a href="https://unsplash.com/photos/05A-kdOH6Hw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
 		Photo by <a href="https://unsplash.com/@abbe_sublett?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Abbe Sublett</a> on <a href="https://unsplash.com/wallpapers/companies?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
 		Photo by <a href="https://unsplash.com/@palumpawump?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Palumpawump</a> on <a href="https://unsplash.com/photos/VhkDi-FjHe8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+		Photo by <a href="https://unsplash.com/@arnosenoner?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Arno Senoner</a> on <a href="https://unsplash.com/photos/a-large-passenger-jet-sitting-on-top-of-an-airport-tarmac-9S5YLilbNZ4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+		<hr>
+		<p>
+			<b>2023 Oskar Oramus, All Rights Reserved &copy;</b>
+		</p>
+	</footer>
 	</div>
 
 </body>
@@ -768,7 +783,7 @@
 
 	var animatingScroll = false;
 
-	document.addEventListener("wheel", (event) => {
+	/*document.addEventListener("wheel", (event) => {
 
 		// prevent scrolling if we are currently in an animation
 		if (animatingScroll) return;
@@ -798,7 +813,7 @@
 			animatingScroll = false;
 		}, 500);
 
-	}, {passive: false});
+	}, {passive: false});*/
 
 	function animateJobTitles(){
 		var titles = ["Software Engineer", "Mathematician"];
