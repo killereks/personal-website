@@ -218,12 +218,17 @@
 		font-family: "Bitter", Helvetica, Arial, sans-serif;
 		margin: 1rem;
 		padding: 1rem;
+		opacity: 1;
+
+		z-index: 5;
 	}
 	
 	.page {
 		width: 100%;
 		height: 100%;
 		background-color: #eaeaea;
+
+		z-index: 10;
 	}
 
 	#page1 {
@@ -250,10 +255,6 @@
 
 		/* animation */
 		animation: caret 1s infinite;
-	}
-
-	#job-title {
-		display: inline-block;
 	}
 
 	@keyframes caret {
@@ -378,13 +379,13 @@
 	#undraw {
 		position: absolute;
 		float: left;
-		width: 70%;
-		height: auto;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		opacity: 0.2;
-		z-index: 1;
+		width: calc(100% - 50px);
+		height: calc(100% - 50px);
+		top: 25px;
+		left: 25px;
+		/* transform: translate(-50%, -50%); */
+		opacity: 0.3;
+		z-index: 0;
 		pointer-events: none;
 	}
 
@@ -474,26 +475,24 @@
 		padding: 1em;
 	}
 
+	.filter-count {
+		color: #333;
+		padding: 0 0.2em;
+	}
 
 </style>
 
 <body>
 	<div class="page" id="page1">
-		<img id="undraw" src="images/undraw_feeling_proud_qne1.png" alt="">
+		<img id="undraw" src="images/pbrengine.gif" alt="">
 		<div id="name" class="header" style="font-size: 4rem;">
 			<b>Oskar Oramus</b>
 		</div>
-		<div class="header">
-			<div id="job-title" style="font-size: 2rem;"></div>
-			<span class="caret">|</span>
-		</div>
 		<p class="bio">
-			I am passionate about using mathematics to solve complex problems in programming, 
-			and have a deep understanding of applied mathematics, including matrices, vectors, 
-			and differential equations.
+			Interested in machine learning and domains where optimisation plays a pivotal role, such as graphics rendering and algorithmic implementations. Well versed in advanced mathematical concepts.
 			<br><br>
-			With over <b id="programming-time"></b> of experience in programming and <b id="unity-time"></b> of experience in Unity 
-			and game development, I am excited to apply my skills and continue to learn and grow in this field.
+			I have <b id="programming-time"></b> of experience in programming and <b id="unity-time"></b> of experience in Unity 
+			and game development.
 		</p>
 		<div class="socials-list">
 			<!-- socials -->
@@ -525,13 +524,34 @@
 				</div>
 				<div class="sort-list">
 					Click to filter: 
-					<div class="sort-label" onclick='toggleSearch(this, "ai");'><img src="./icons/ai.png"> Artificial Intelligence</div>
-					<div class="sort-label" onclick='toggleSearch(this, "game engine");'><img src="./icons/game.png"> Game Engines</div>
-					<div class="sort-label" onclick='toggleSearch(this, "game");'><img src="./icons/console.png"> Games</div>
-					<div class="sort-label" onclick='toggleSearch(this, "maths");'><img src="./icons/calculating.png"> Mathematics</div>
-					<div class="sort-label" onclick='toggleSearch(this, "networking");'><img src="./icons/computer.png"> Networking</div>
-					<div class="sort-label" onclick='toggleSearch(this, "paper");'><img src="./icons/experiment.png"> Scientific Papers</div>
-					<div class="sort-label" onclick='toggleSearch(this, "web dev");'><img src="./icons/browser.png"> Web Development</div>
+					<div class="sort-label" onclick='toggleSearch(this, "ai");'>
+						<img src="./icons/ai.png"> Artificial Intelligence
+						<div class="filter-count" id="aiCount"></div>
+					</div>
+					<div class="sort-label" onclick='toggleSearch(this, "game engine");'>
+						<img src="./icons/game.png"> Game Engines
+						<div class="filter-count" id="geCount"></div>
+					</div>
+					<div class="sort-label" onclick='toggleSearch(this, "game");'>
+						<img src="./icons/console.png"> Games
+						<div class="filter-count" id="gCount"></div>
+					</div>
+					<div class="sort-label" onclick='toggleSearch(this, "maths");'>
+						<img src="./icons/calculating.png"> Mathematics
+						<div class="filter-count" id="mCount"></div>
+					</div>
+					<div class="sort-label" onclick='toggleSearch(this, "networking");'>
+						<img src="./icons/computer.png"> Networking
+						<div class="filter-count" id="nCount"></div>
+					</div>
+					<div class="sort-label" onclick='toggleSearch(this, "paper");'>
+						<img src="./icons/experiment.png"> Scientific Papers
+						<div class="filter-count" id="spCount"></div>
+					</div>
+					<div class="sort-label" onclick='toggleSearch(this, "web dev");'>
+						<img src="./icons/browser.png"> Web Development
+						<div class="filter-count" id="wbCount"></div>
+					</div>
 				</div>
 				<div class="top-project-bar">
 					<div class="project nav-button" onclick="prev()"><i class="ui big icon arrow left"></i></div>
@@ -649,6 +669,29 @@
 
 		$('#project-count').html(`Showing ${count} projects`);
 	}
+
+	function calculateProjectCounts(){
+		function getCount(tag){
+			var count = 0;
+			for (var i = 0; i < info.length; i++){
+				var project = info[i];
+				if (project.searchTags.includes(tag)){
+					count++;
+				}
+			}
+			return count;
+		}
+
+		$('#aiCount')	.html(` [${getCount("ai")}]`);
+		$('#geCount')	.html(` [${getCount("game engine")}]`);
+		$('#gCount')	.html(` [${getCount("game")}]`);
+		$('#mCount')	.html(` [${getCount("maths")}]`);
+		$('#nCount')	.html(` [${getCount("networking")}]`);
+		$('#spCount')	.html(` [${getCount("paper")}]`);
+		$('#wbCount')	.html(` [${getCount("web dev")}]`);
+	}
+
+	calculateProjectCounts();
 
 	// sort based on if project has a winner property
 	info.sort((a,b) => {
@@ -814,48 +857,6 @@
 		}, 500);
 
 	}, {passive: false});*/
-
-	function animateJobTitles(){
-		var titles = ["Software Engineer", "Mathematician"];
-		var index = 0;
-		// animate each letter until full title is displayed
-		// then remove each letter until title is empty
-		// wait 1 second, then repeat
-		// show caret at end of title
-
-		var direction = 1;
-		var title = "";
-		var titleElement = $("#job-title");
-
-		var delay = 0;
-		
-		var interval = setInterval(function(){
-			if (delay > 0){
-				delay -= 50;
-				return;
-			}
-
-			if (direction == 1){
-				title += titles[index][title.length];
-				titleElement.html(title);
-				if (title.length == titles[index].length){
-					direction = -1;
-					delay = 1000;
-				}
-			} else {
-				title = title.substring(0, title.length - 1);
-				titleElement.html(title);
-				if (title.length == 0){
-					direction = 1;
-					index++;
-					if (index == titles.length){
-						index = 0;
-					}
-				}
-			}
-		}, 50);
-	}
-	animateJobTitles();
 
 	function parallaxEffect(){
 		var window_width = $(window).width();
